@@ -1,0 +1,282 @@
+/* 
+   Premium Luxury Theme - Optimized CSS 
+   Colors: Charcoal Black (#0a0a0a), Gold (#d4af37)
+*/
+
+:root {
+  --color-gold: #d4af37;
+  --color-gold-dark: #b08d26;
+  --color-black: #0a0a0a;
+  --color-black-light: #1a1a1a;
+  --color-white: #ffffff;
+  --color-gray-light: #f4f4f4;
+  --color-gray-text: #9ca3af;
+  
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Montserrat', sans-serif;
+  
+  --spacing-section: 6rem;
+}
+
+/* Base Reset & Typography */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-black);
+  color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-serif); margin: 0; line-height: 1.2; }
+p { margin: 0 0 1rem 0; }
+a { text-decoration: none; transition: color 0.3s ease; }
+img { max-width: 100%; display: block; }
+*:focus { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+}
+
+.text-gold { color: var(--color-gold); }
+.text-center { text-align: center; }
+.uppercase { text-transform: uppercase; }
+.tracking-widest { letter-spacing: 0.1em; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1.25rem 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .btn { width: auto; }
+}
+
+.btn-primary {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  background-color: #ffffff !important;
+  color: var(--color-black);
+}
+
+.btn-outline {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+/* Sections */
+.section-py { padding: var(--spacing-section) 0; }
+.bg-dark-gray { background-color: #111; } /* Slightly lighter black for contrast */
+.border-t-dark { border-top: 1px solid var(--color-black-light); }
+
+/* Feature Cards (Glassmorphism) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 2.5rem;
+  transition: all 0.5s ease;
+}
+
+.glass-interactive:hover {
+  background-color: var(--color-gold);
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.glass-interactive:hover h3, 
+.glass-interactive:hover p, 
+.glass-interactive:hover svg {
+  color: var(--color-black);
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-gold);
+  transition: color 0.5s ease;
+}
+
+/* Fleet Section */
+.fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) { .fleet-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .fleet-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.fleet-card {
+  background-color: var(--color-black);
+  border: 1px solid var(--color-black-light);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.fleet-card:hover { border-color: var(--color-gold); }
+
+.fleet-img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.fleet-card:hover .fleet-img { opacity: 1; }
+
+.fleet-info { padding: 1.5rem; text-align: center; }
+
+/* Booking Form */
+.booking-section { position: relative; overflow: hidden; }
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) { .form-grid { grid-template-columns: 1fr 1fr; } }
+
+.form-group { margin-bottom: 0; }
+.col-span-full { grid-column: 1 / -1; }
+
+.form-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.form-input {
+  width: 100%;
+  background-color: var(--color-black-light);
+  border: none;
+  border-bottom: 1px solid var(--color-gold-dark);
+  color: white;
+  padding: 0.75rem 0;
+  border-radius: 0;
+  font-family: var(--font-sans);
+}
+
+.form-input:focus {
+  border-bottom-color: var(--color-gold);
+  outline: none;
+  box-shadow: none;
+}
+
+/* Map Section */
+.map-container {
+  width: 100%;
+  height: 450px;
+  background-color: var(--color-black-light);
+  position: relative;
+}
+
+.map-overlay-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  pointer-events: none; /* Allow clicks to pass through usually, but button needs events */
+  transition: opacity 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none !important;
+}
+
+/* Footer */
+.footer {
+  background-color: #000;
+  padding: 3rem 0;
+  border-top: 1px solid var(--color-black-light);
+  font-size: 0.875rem;
+}
+
+.footer-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-flex { flex-direction: row; justify-content: space-between; }
+}
+
+.footer-links { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+.footer-links a { color: var(--color-gray-text); text-transform: uppercase; font-size: 0.75rem; font-weight: 700; }
+.footer-links a:hover { color: var(--color-gold); }
+
+/* Utilities */
+.mb-4 { margin-bottom: 1rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+.mb-16 { margin-bottom: 4rem; }
+
+/* Sticky Mobile CTA */
+.fixed-bottom-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+}
+@media (min-width: 768px) { .fixed-bottom-cta { display: none; } }
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 50;
+  background-color: #25D366;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  animation: bounce 2s infinite;
+}
+
+@media (min-width: 768px) { .floating-whatsapp { bottom: 1.5rem; } }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

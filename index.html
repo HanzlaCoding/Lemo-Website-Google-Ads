@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Premium Chauffeur &amp; Luxury Limo Services | Elite Travel</title>
+    <meta
+        content="Experience the ultimate in luxury travel with our professional chauffeur and limousine services. Available 24/7 for airport transfers, events, and corporate travel."
+        name="description" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- Preconnect for Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Critical CSS (Inlined for LCP optimization) -->
+    <style>
+        :root {
+            --color-gold: #d4af37;
+            --color-black: #0a0a0a;
+            --color-white: #fff;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif
+        }
+
+        body {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            font-family: var(--font-sans);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), #0a0a0a);
+            z-index: 1
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1.5rem
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem
+        }
+
+        h1 span {
+            color: var(--color-gold)
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center
+        }
+
+        @media(min-width:768px) {
+            h1 {
+                font-size: 5rem
+            }
+
+            .hero-btns {
+                flex-direction: row
+            }
+
+            .btn {
+                width: auto;
+            }
+        }
+
+        /* Essential Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1.25rem 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--color-gold);
+            color: var(--color-black);
+        }
+
+        .btn-outline {
+            border-color: var(--color-gold);
+            color: var(--color-gold);
+            background: transparent;
+        }
+    </style>
+
+    <!-- Stylesheet (Non-blocking) -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <img src="assets/hero-bg.webp" alt="Luxury Chauffeur Service" class="hero-bg" width="1600" height="673"
+            fetchpriority="high">
+        <!-- LCP Optimization -->
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content container">
+            <h1>Premium Chauffeur &amp; <br><span>Luxury Limo Services</span></h1>
+            <p>Reliable. Elegant. Available 24/7.</p>
+            <div class="hero-btns">
+                <a href="#booking" class="btn btn-primary">Get Instant Quote</a>
+                <a href="tel:+18005550199" class="btn btn-outline">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section-py border-t-dark">
+        <div class="container text-center">
+            <h2 class="mb-4 text-center" style="font-size: 2.5rem;">Why Choose Us</h2>
+            <div style="height:4px;width:100px;background:var(--color-gold);margin:0 auto 4rem auto;"></div>
+
+            <div class="fleet-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <!-- Card 1 -->
+                <div class="glass-card glass-interactive">
+                    <svg class="feature-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="mb-4 text-gold uppercase tracking-widest text-lg font-bold">24/7 Availability</h3>
+                    <p class="text-gray-text">Round-the-clock service for your convenience, whenever you need us.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card glass-interactive">
+                    <svg class="feature-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                    </svg>
+                    <h3 class="mb-4 text-gold uppercase tracking-widest text-lg font-bold">Professional Chauffeurs</h3>
+                    <p class="text-gray-text">Highly trained, vetted, and professional drivers dedicated to your safety.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card glass-interactive">
+                    <svg class="feature-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0">
+                        </path>
+                    </svg>
+                    <h3 class="mb-4 text-gold uppercase tracking-widest text-lg font-bold">Luxury Fleet</h3>
+                    <p class="text-gray-text">Modern, pristine vehicles equipped with top-tier amenities for your
+                        comfort.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="glass-card glass-interactive">
+                    <svg class="feature-icon mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3 class="mb-4 text-gold uppercase tracking-widest text-lg font-bold">On-Time Guarantee</h3>
+                    <p class="text-gray-text">We value your time. Our chauffeurs arrive 15 minutes early, guaranteed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section id="fleet" class="section-py bg-dark-gray">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="mb-4" style="font-size: 2.5rem;">Our Luxury Fleet</h2>
+                <p class="text-gold uppercase tracking-widest">Experience Superior Comfort</p>
+            </div>
+
+            <div class="fleet-grid">
+                <!-- Fleet 1 -->
+                <div class="fleet-card">
+                    <img src="assets/fleet-mercedes.webp" alt="Mercedes S-Class" class="fleet-img" width="800"
+                        height="449" loading="lazy">
+                    <div class="fleet-info">
+                        <h3 class="mb-2 font-bold text-lg">Mercedes S-Class</h3>
+                        <p class="text-gray-text text-sm mb-4">Seats 3-4 Passengers</p>
+                        <a href="#booking" class="btn btn-outline" style="font-size: 0.75rem; padding: 1rem;">Book This
+                            Vehicle</a>
+                    </div>
+                </div>
+                <!-- Fleet 2 -->
+                <div class="fleet-card">
+                    <img src="assets/fleet-escalade.webp" alt="Cadillac Escalade" class="fleet-img" width="800"
+                        height="449" loading="lazy">
+                    <div class="fleet-info">
+                        <h3 class="mb-2 font-bold text-lg">Cadillac Escalade</h3>
+                        <p class="text-gray-text text-sm mb-4">Seats 6-7 Passengers</p>
+                        <a href="#booking" class="btn btn-outline" style="font-size: 0.75rem; padding: 1rem;">Book This
+                            Vehicle</a>
+                    </div>
+                </div>
+                <!-- Fleet 3 -->
+                <div class="fleet-card">
+                    <img src="assets/fleet-lincoln.webp" alt="Lincoln Navigator" class="fleet-img" width="800"
+                        height="450" loading="lazy">
+                    <div class="fleet-info">
+                        <h3 class="mb-2 font-bold text-lg">Lincoln Navigator</h3>
+                        <p class="text-gray-text text-sm mb-4">Seats 6-7 Passengers</p>
+                        <a href="#booking" class="btn btn-outline" style="font-size: 0.75rem; padding: 1rem;">Book This
+                            Vehicle</a>
+                    </div>
+                </div>
+                <!-- Fleet 4 -->
+                <div class="fleet-card">
+                    <img src="assets/fleet-sprinter.webp" alt="Sprinter Limo Van" class="fleet-img" width="800"
+                        height="446" loading="lazy">
+                    <div class="fleet-info">
+                        <h3 class="mb-2 font-bold text-lg">Sprinter Limo Van</h3>
+                        <p class="text-gray-text text-sm mb-4">Seats 10-14 Passengers</p>
+                        <a href="#booking" class="btn btn-outline" style="font-size: 0.75rem; padding: 1rem;">Book This
+                            Vehicle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section section-py">
+        <!-- Decorative bg logic omitted for clean CSS, using solid overlay instead if needed, but keeping simple for perf -->
+        <div class="container">
+            <div class="glass-card" style="max-width: 900px; margin: 0 auto;">
+                <div class="text-center mb-12">
+                    <h2 class="text-gold mb-2" style="font-size: 2rem;">Get an Instant Quote</h2>
+                    <p class="text-gray-text">Complete the form below and we'll send you an immediate estimate.</p>
+                </div>
+
+                <form id="bookingForm" class="form-grid">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" class="form-input" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="(555) 000-0000" required>
+                    </div>
+
+                    <div class="form-group col-span-full">
+                        <label for="pickup" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="form-group col-span-full">
+                        <label for="pickup" class="form-label">Pickup Address</label>
+                        <input type="text" id="pickup" class="form-input" placeholder="Enter pickup location" required>
+                    </div>
+
+                    <div class="form-group col-span-full">
+                        <label for="dropoff" class="form-label">Drop-off Address</label>
+                        <input type="text" id="dropoff" class="form-input" placeholder="Enter destination" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" id="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="form-label">Time</label>
+                        <input type="time" id="time" class="form-input" required>
+                    </div>
+
+                    <div class="col-span-full" style="margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary">Get My Quote</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section-py bg-dark-gray" style="padding-bottom: 0;">
+        <div class="container text-center mb-12">
+            <h2 class="mb-4" style="font-size: 2.5rem;">Serving the Entire Metro Area</h2>
+            <p class="text-gray-text max-w-2xl mx-auto">Covering all major airports, city centers, and surrounding
+                suburbs.</p>
+        </div>
+
+        <div class="map-container">
+            <div id="map" style="width: 100%; height: 100%;">
+                <!-- Static Fallback Map -->
+                <img src="assets/service-map.webp" alt="Service Coverage Map" width="800" height="446"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+            </div>
+            <!-- Overlay service button -->
+            <div class="map-overlay-btn">
+                <div class="glass-card" style="padding: 1rem 2rem;">
+                    <span class="text-gold font-bold uppercase tracking-widest">Service Coverage Map</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-flex">
+                <div class="text-center md:text-left">
+                    <p class="text-gold font-bold uppercase tracking-widest mb-2">Elite Chauffeur Service</p>
+                    <p class="text-gray-text" style="font-size: 0.8rem;">123 Luxury Lane, Metropolis, NY 10001</p>
+                </div>
+                <div class="footer-links">
+                    <a href="tel:+18005550199">1-800-555-0199</a>
+                    <a href="mailto:booking@luxurychauffeur.com">booking@luxurychauffeur.com</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="text-center text-gray-text mt-8 pt-8 border-t-dark"
+                style="font-size: 0.7rem; text-transform: uppercase;">
+                &copy; 2024 Elite Chauffeur Services. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed Mobile CTA -->
+    <div class="fixed-bottom-cta">
+        <a href="tel:+18005550199" class="btn btn-primary" style="padding: 1rem;">Call Now</a>
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/18005550199" target="_blank" class="floating-whatsapp" aria-label="Chat on WhatsApp">
+        <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z">
+            </path>
+        </svg>
+    </a>
+
+    <!-- Scripts -->
+    <script defer src="script.js"></script>
+
+</body>
+
+</html>
