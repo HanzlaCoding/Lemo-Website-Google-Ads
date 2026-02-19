@@ -114,15 +114,124 @@
             filter: brightness(1.05);
         }
 
-        /* Hero Section with Light Overlay */
-        .hero {
-            position: relative;
-            min-height: 100vh;
-            min-height: 100dvh;
+        /* Wizard Steps - Premium */
+        .step-indicator {
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 5% 60px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .step {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: #94a3b8;
+            border: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            z-index: 2;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .step.active {
+            background: var(--primary-gold);
+            color: white;
+            border-color: var(--primary-gold);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            transform: scale(1.1);
+        }
+
+        .step-line {
+            width: 80px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 0 15px;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+        }
+
+        .form-step {
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* New Sections Styling */
+        .services-section,
+        .about-section {
+            padding: 5rem 5%;
+            background: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-gold);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Hero Section with Light Overlay */
+        .hero {
+            position: relative;
+            /* Fit to viewport but allow growth if content needs it */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Reduced padding to bring content up */
+            padding: 80px 5% 40px;
             /* Bright glossy overlay */
             background-image:
                 linear-gradient(to right,
@@ -138,16 +247,18 @@
         .hero-container {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
-            gap: 5rem;
+            gap: 3rem;
+            /* Reduced gap */
             max-width: 1280px;
             width: 100%;
             align-items: center;
         }
 
         .hero-content h1 {
-            font-size: 3.75rem;
+            font-size: 3.25rem;
+            /* Slightly smaller */
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             /* Changed from white shadow to soft dark shadow for contrast on light bg */
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -164,9 +275,9 @@
         }
 
         .hero-subtext {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             max-width: 520px;
             font-weight: 500;
         }
@@ -179,10 +290,10 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             font-weight: 600;
             color: var(--text-main);
-            font-size: 1.05rem;
+            font-size: 1rem;
         }
 
         .check-icon {
@@ -224,7 +335,8 @@
             background-color: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            padding: 2.5rem;
+            padding: 2rem;
+            /* Reduced padding */
             border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.8);
             box-shadow:
@@ -234,23 +346,38 @@
         }
 
         .form-title {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            /* Smaller title */
+            margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--text-main);
             text-align: center;
         }
 
+        .form-section-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            letter-spacing: 0.05em;
+        }
+
         .form-grid {
             display: grid;
-            gap: 1.25rem;
+            gap: 1.5rem;
+            /* Breathing space */
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            /* More space between label and input */
         }
 
         .form-row {
@@ -260,7 +387,8 @@
         }
 
         label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
+            /* Smaller label */
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
@@ -269,16 +397,17 @@
 
         input,
         select {
-            background-color: #fff;
+            background-color: #f8fafc;
             border: 1px solid #e2e8f0;
             color: var(--text-main);
-            padding: 0.85rem 1rem;
-            border-radius: 10px;
+            padding: 1rem;
+            /* More internal breathing space */
+            border-radius: 12px;
             font-family: 'Inter', sans-serif;
             width: 100%;
             font-size: 0.95rem;
             transition: all 0.2s ease;
-            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         input:focus,
@@ -360,8 +489,14 @@
             </svg>
             Luxury Limo <span>Detroit</span>
         </a>
-        <a href="tel:5864744195" class="cta-button">
-            📞 (586) 474-4195
+        <a href="tel:03011954994" class="cta-button" style="display: inline-flex; align-items: center; gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+            </svg>
+            0301-1954994
         </a>
     </header>
 
@@ -400,7 +535,15 @@
             <!-- Right Side (Form) -->
             <div class="hero-form-card">
                 <h2 class="form-title">Get Your Instant Quote Now</h2>
-                <form id="bookingForm" class="form-grid" action="https://formsubmit.co/daniel.futureofaiweb@gmail.com"
+
+                <!-- Progress Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" id="step-dot-1">1</div>
+                    <div class="step-line"></div>
+                    <div class="step" id="step-dot-2">2</div>
+                </div>
+
+                <form id="bookingForm" class="form-grid" action="https://formsubmit.co/41757e77266e7223e0b126c967d36688"
                     method="POST">
                     <!-- Formsubmit Config -->
                     <input type="hidden" name="_subject" value="New Limo Quote Request!">
@@ -408,69 +551,99 @@
                     <input type="hidden" name="_captcha" value="false">
                     <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> Optional -->
 
-                    <div class="form-group">
-                        <label for="serviceType">Service Type</label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="point-to-point">Point-to-Point</option>
-                            <option value="airport-transfer">Airport Transfer</option>
-                            <option value="hourly">Hourly Charter</option>
-                        </select>
-                    </div>
+                    <!-- STEP 1: Trip Details -->
+                    <div id="step1" class="form-step active">
 
-                    <div class="form-group">
-                        <label for="pickupAddress">Pickup Address</label>
-                        <div class="autocomplete-wrapper">
-                            <input type="text" id="pickupAddress" name="pickupAddress"
-                                placeholder="Enter pickup location" required autocomplete="off">
-                            <ul class="suggestions-list" id="pickup-suggestions"></ul>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pickupAddress">From</label>
+                                <div class="autocomplete-wrapper">
+                                    <input type="text" id="pickupAddress" name="pickupAddress"
+                                        placeholder="Pickup Location" required autocomplete="off">
+                                    <ul class="suggestions-list" id="pickup-suggestions"></ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="dropoffAddress">To</label>
+                                <div class="autocomplete-wrapper">
+                                    <input type="text" id="dropoffAddress" name="dropoffAddress"
+                                        placeholder="Dropoff Destination" required autocomplete="off">
+                                    <ul class="suggestions-list" id="dropoff-suggestions"></ul>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="dropoffAddress">Dropoff Address</label>
-                        <div class="autocomplete-wrapper">
-                            <input type="text" id="dropoffAddress" name="dropoffAddress"
-                                placeholder="Enter dropoff destination" required autocomplete="off">
-                            <ul class="suggestions-list" id="dropoff-suggestions"></ul>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Time</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Date</label>
-                            <input type="date" id="date" name="date" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="passengers">Passengers</label>
+                                <select id="passengers" name="passengers" required>
+                                    <option value="1-3">1-3 Passengers</option>
+                                    <option value="4-6">4-6 Passengers</option>
+                                    <option value="7+">7+ Passengers</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceType">Service Type</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="point-to-point">Point-to-Point</option>
+                                    <option value="airport-transfer">Airport Transfer</option>
+                                    <option value="hourly">Hourly Charter</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="time">Time</label>
-                            <input type="time" id="time" name="time" required>
-                        </div>
-                    </div>
 
-                    <div class="form-row">
                         <div class="form-group">
-                            <label for="passengers">Passengers</label>
-                            <select id="passengers" name="passengers" required>
-                                <option value="1-3">1-3</option>
-                                <option value="4-6">4-6</option>
-                                <option value="7+">7+</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="vehicleType">Vehicle Type</label>
+                            <label for="vehicleType">Vehicle Preference</label>
                             <select id="vehicleType" name="vehicleType" required>
                                 <option value="luxury-sedan">Luxury Sedan</option>
                                 <option value="suv">Luxury SUV</option>
                                 <option value="sprinter">Sprinter Limo</option>
                             </select>
                         </div>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button type="button" class="submit-btn next-btn" onclick="nextStep()"
+                                style="width: 50%; margin: 0 auto; display: block;">Next</button>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="customerName">Your Name</label>
-                        <input type="text" id="customerName" name="customerName" placeholder="Full Name" required>
-                    </div>
+                    <!-- STEP 2: Contact Info -->
+                    <div id="step2" class="form-step" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customerName">Your Name</label>
+                                <input type="text" id="customerName" name="customerName" placeholder="Full Name"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+                            </div>
+                        </div>
 
-                    <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote</button>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="form-actions" style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button type="button" class="submit-btn" onclick="prevStep()"
+                                style="background: #e2e8f0; color: #333; flex: 1;">&larr; Back</button>
+                            <button type="submit" class="submit-btn" id="submitBtn" style="flex: 2;">Get My Instant
+                                Quote</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -554,24 +727,122 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2>Our Premium <span>Services</span></h2>
+            <div class="accent-line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                    </svg>
+                </span>
+                <h3>Airport Transfers</h3>
+                <p>Reliable pickup and drop-off at DTW and private airfields. We track your flight to ensure
+                    punctuality.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </span>
+                <h3>Hourly Charter</h3>
+                <p>Flexible hourly service for meetings, dinners, or city tours. Your chauffeur waits for you.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                    </svg>
+                </span>
+                <h3>Corporate Travel</h3>
+                <p>Professional transportation for executives and clients. Discreet, comfortable, and productive.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                        </polygon>
+                    </svg>
+                </span>
+                <h3>Special Events</h3>
+                <p>Elevate your wedding, prom, or night out with our luxury fleet and red-carpet service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" style="background-color: #f8fafc;">
+        <div class="section-header">
+            <h2>About <span>Luxury Limo Detroit</span></h2>
+            <div class="accent-line"></div>
+        </div>
+
+        <div class="about-content" style="margin-top: 2rem;">
+            <p>
+                At Luxury Limo Detroit, we redefine transportation with a commitment to excellence, safety, and
+                sophistication.
+                With over a decade of experience serving the Metro Detroit area, we understand that your journey is just
+                as important as your destination.
+            </p>
+            <p>
+                Our fleet is meticulously maintained to showroom standards, and our chauffeurs are vetted professionals
+                dedicated to providing
+                a seamless experience. Whether you're traveling for business or celebrating a milestone, we ensure every
+                mile is memorable.
+            </p>
+            <a href="tel:03011954994" class="cta-button" style="display: inline-flex; margin-top: 1rem;">
+                Contact Us Today
+            </a>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-container">
-            <div class="footer-left">
-                <a href="#" class="logo">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 17H19M5 12H19M5 7H19" stroke="#d4af37" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                    Luxury Limo <span>Detroit</span>
-                </a>
-                <p>&copy; 2024 Luxury Limo Detroit. All Rights Reserved.</p>
+            <!-- Upper Part: Logo & Contact -->
+            <div class="footer-upper">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 17H19M5 12H19M5 7H19" stroke="#d4af37" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                        Luxury Limo <span>Detroit</span>
+                    </a>
+                </div>
+                <div class="footer-contact" style="text-align: right;">
+                    <p class="small-label">NEED IMMEDIATE HELP?</p>
+                    <a href="tel:03011954994" class="phone-large">0301-1954994</a>
+                </div>
             </div>
-            <div class="footer-center">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-            <div class="footer-right">
-                <p class="small-label">NEED IMMEDIATE HELP?</p>
-                <a href="tel:5864744195" class="phone-large">(586) 474-4195</a>
+
+            <!-- Divider -->
+            <div class="footer-divider"></div>
+
+            <!-- Lower Part: 3 Columns -->
+            <div class="footer-lower">
+                <div class="footer-copyright">
+                    &copy; 2024 Luxury Limo Detroit. All Rights Reserved.
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+                <div class="footer-credit">
+                    Made With <span style="color: #e25555;">&hearts;</span> By Future Of AI Web
+                </div>
             </div>
         </div>
     </footer>

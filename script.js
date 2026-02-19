@@ -34,7 +34,8 @@ function setupAutocomplete(inputId, listId) {
 
 function fetchAddress(query, list, input) {
     // Nominatim Search API (Free)
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=us&addressdetails=1&limit=5`;
+    // Removed countrycodes restriction to search globally
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&addressdetails=1&limit=10`;
 
     fetch(url, { headers: { 'User-Agent': 'LemoLimoPage/1.0' } })
         .then(response => response.json())
@@ -97,13 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData(bookingForm);
 
                 // Use the AJAX endpoint for formsubmit.co
-                fetch("https://formsubmit.co/ajax/daniel.futureofaiweb@gmail.com", {
+                fetch("https://formsubmit.co/41757e77266e7223e0b126c967d36688", {
                     method: "POST",
                     headers: {
-                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify(Object.fromEntries(formData))
+                    body: formData
                 })
                     .then(response => response.json())
                     .then(data => {
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Your request may have been sent, but we encountered a network issue. Please call us at (586) 474-4195 to confirm if urgent.');
+                        alert('Your request may have been sent, but we encountered a network issue. Please call us at 0301-1954994 to confirm if urgent.');
                     })
                     .finally(() => {
                         submitBtn.disabled = false;
@@ -163,4 +163,47 @@ function trackGoogleAdsConversion() {
     //      'value': 1.0,
     //      'currency': 'USD'
     // });
+}
+
+// Multi-step Form Logic
+function nextStep() {
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const dot2 = document.getElementById('step-dot-2');
+    const line = document.querySelector('.step-line');
+
+    // Validate Step 1 Fields
+    const inputs = step1.querySelectorAll('input, select');
+    let isValid = true;
+
+    for (const input of inputs) {
+        if (!input.checkValidity()) {
+            isValid = false;
+            input.reportValidity();
+            return;
+        }
+    }
+
+    if (isValid) {
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+
+        // Update Indicator
+        dot2.classList.add('active');
+        line.style.background = '#d4af37';
+    }
+}
+
+function prevStep() {
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const dot2 = document.getElementById('step-dot-2');
+    const line = document.querySelector('.step-line');
+
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+
+    // Update Indicator
+    dot2.classList.remove('active');
+    line.style.background = '#e2e8f0';
 }
