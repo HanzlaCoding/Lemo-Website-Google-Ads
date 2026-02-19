@@ -12,17 +12,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
 
     <!-- Critical CSS (Inline) -->
     <style>
         :root {
-            --bg-color: #0b0b0b;
+            /* Bright / Glossy Theme Variables */
+            --bg-color: #f8fafc;
+            /* Crisp light grey/white */
             --primary-gold: #d4af37;
-            --input-bg: #1a1a1a;
-            --text-white: #ffffff;
-            --text-grey: #cccccc;
+            --primary-gold-hover: #b5952f;
+            --text-main: #1e293b;
+            /* Slate 800 - High contrast dark */
+            --text-secondary: #475569;
+            /* Slate 600 - Readable grey */
+            --input-bg: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
         }
 
         * {
@@ -34,9 +44,10 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-white);
-            line-height: 1.5;
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1,
@@ -47,31 +58,35 @@
         h6 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
+            color: var(--text-main);
         }
 
-        /* Header */
+        /* Glossy Header */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: rgba(11, 11, 11, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: var(--shadow-sm);
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-white);
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-main);
             text-transform: uppercase;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
         .logo span {
@@ -79,35 +94,42 @@
         }
 
         .cta-button {
-            background-color: var(--primary-gold);
-            color: #000;
-            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #f3cf55 100%);
+            color: #1a1a1a;
+            padding: 0.75rem 1.75rem;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 4px;
-            transition: transform 0.2s ease, background-color 0.2s;
+            border-radius: 50px;
+            transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            background-color: #c19b2e;
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3);
+            filter: brightness(1.05);
         }
 
-        /* Hero Section (Split Layout) */
+        /* Hero Section with Light Overlay */
         .hero {
             position: relative;
             min-height: 100vh;
-            /* Fallback */
             min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 5% 40px;
-            /* Account for fixed header */
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%), url('assets/hero-bg.webp');
+            padding: 100px 5% 60px;
+            /* Bright glossy overlay */
+            background-image:
+                linear-gradient(to right,
+                    rgba(248, 250, 252, 0.96) 0%,
+                    rgba(248, 250, 252, 0.85) 50%,
+                    rgba(248, 250, 252, 0.6) 100%),
+                url('assets/hero-bg.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -115,28 +137,34 @@
 
         .hero-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            max-width: 1280px;
             width: 100%;
             align-items: center;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 3.75rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
         }
 
         .hero-content h1 span {
             color: var(--primary-gold);
+            background: -webkit-linear-gradient(45deg, var(--primary-gold), #b5952f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero-subtext {
-            font-size: 1.1rem;
-            color: var(--text-grey);
-            margin-bottom: 2rem;
-            max-width: 500px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 520px;
+            font-weight: 500;
         }
 
         .hero-benefits {
@@ -146,36 +174,73 @@
         .hero-benefits li {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 1.05rem;
         }
 
         .check-icon {
             color: var(--primary-gold);
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
+            filter: drop-shadow(0 2px 2px rgba(212, 175, 55, 0.2));
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: scale(0.5);
         }
 
-        /* Hero Form */
+        .hero-benefits li:nth-child(1) .check-icon {
+            animation-delay: 0.1s;
+        }
+
+        .hero-benefits li:nth-child(2) .check-icon {
+            animation-delay: 0.3s;
+        }
+
+        .hero-benefits li:nth-child(3) .check-icon {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Hero Form - Glossy Glassmorphism */
         .hero-form-card {
-            background-color: rgba(20, 20, 20, 0.95);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 20px 25px -5px rgba(0, 0, 0, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.6);
         }
 
         .form-title {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             margin-bottom: 1.5rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-main);
+            text-align: center;
         }
 
         .form-grid {
             display: grid;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .form-group {
@@ -194,49 +259,60 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: var(--text-grey);
-            font-weight: 600;
+            color: var(--text-secondary);
+            font-weight: 700;
         }
 
         input,
         select {
-            background-color: var(--input-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 0.75rem;
-            border-radius: 4px;
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            color: var(--text-main);
+            padding: 0.85rem 1rem;
+            border-radius: 10px;
             font-family: 'Inter', sans-serif;
             width: 100%;
             font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
         }
 
         input:focus,
         select:focus {
             outline: none;
             border-color: var(--primary-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
         }
 
         .submit-btn {
-            background-color: var(--primary-gold);
-            color: #000;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #dcb746 100%);
+            color: #1a1a1a;
             border: none;
-            padding: 1rem;
+            padding: 1.1rem;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 10px;
             margin-top: 0.5rem;
-            transition: background-color 0.2s;
+            transition: all 0.3s ease;
             width: 100%;
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.25);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .submit-btn:hover {
-            background-color: #c19b2e;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.35);
+            filter: brightness(1.05);
         }
 
         /* Responsive */
         @media (max-width: 968px) {
+            .hero {
+                padding-top: 50px;
+            }
+
             .hero-container {
                 grid-template-columns: 1fr;
                 gap: 3rem;
@@ -244,12 +320,18 @@
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.75rem;
             }
+
+
 
             .hero-benefits {
                 display: inline-block;
                 text-align: left;
+            }
+
+            .hero-benefits li {
+                justify-content: flex-start;
             }
 
             .hero-subtext {
@@ -369,7 +451,7 @@
                         <input type="text" id="customerName" placeholder="Full Name" required>
                     </div>
 
-                    <button type="submit" class="submit-btn">Get My Instant Quote</button>
+                    <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote</button>
                 </form>
             </div>
         </div>
