@@ -246,3 +246,70 @@ footer {
         font-size: 2.25rem;
     }
 }
+
+/* Custom Autocomplete Dropdown (OpenStreetMap) */
+.autocomplete-wrapper {
+    position: relative;
+    width: 100%; /* Ensure it spans the parent */
+}
+
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+    margin-top: 4px; /* Space between input and list */
+}
+
+.suggestions-list.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    border-bottom: 1px solid #f1f1f1;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background-color: #f8fafc;
+    color: var(--primary-gold);
+}
+
+.suggestion-icon {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+}
+
+/* Scrollbar for suggestions */
+.suggestions-list::-webkit-scrollbar {
+    width: 8px;
+}
+.suggestions-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.suggestions-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.suggestions-list::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
