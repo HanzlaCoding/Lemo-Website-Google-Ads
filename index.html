@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -514,12 +514,34 @@
             background-color: #0d0d0d;
         }
 
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* ─── MARQUEE TRACK ─── */
+        .reviews-marquee-outer {
+            overflow: hidden;
+            margin-top: 2.5rem;
+            /* fade edges */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        .reviews-track {
+            display: flex;
             gap: 1.25rem;
-            max-width: 1200px;
-            margin: 2.5rem auto 0;
+            width: max-content;
+            animation: marqueeScroll 38s linear infinite;
+        }
+
+        .reviews-marquee-outer:hover .reviews-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .review-card {
@@ -527,12 +549,14 @@
             border: 1px solid rgba(212, 175, 55, 0.15);
             border-radius: 12px;
             padding: 1.25rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            flex-shrink: 0;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
         }
 
         .review-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             border-color: rgba(212, 175, 55, 0.35);
         }
 
@@ -780,8 +804,10 @@
             <div class="accent-line" style="margin:0.85rem auto 0;"></div>
         </div>
 
-        <div class="reviews-grid" id="reviewsGrid">
-            <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+        <div class="reviews-marquee-outer" id="reviewsMarqueeOuter">
+            <div class="reviews-track" id="reviewsGrid">
+                <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+            </div>
         </div>
 
         <div style="text-align:center; margin-top:1.5rem;">
@@ -1061,14 +1087,14 @@
 
         // Render reviews to DOM ────────────────────────────────────────────
         function renderReviews(reviews) {
-            const grid = document.getElementById('reviewsGrid');
+            const track = document.getElementById('reviewsGrid');
             if (!reviews || reviews.length === 0) {
-                grid.innerHTML = '<p class="reviews-loading">No 5-star reviews found yet.</p>';
+                track.innerHTML = '<p class="reviews-loading">No 5-star reviews found yet.</p>';
                 return;
             }
-            grid.innerHTML = reviews.slice(0, 6).map(r => `
+            const makeCard = r => `
                 <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     <p class="review-text">"${r.text}"</p>
                     <div class="review-author">${r.author}</div>
                     ${r.time ? `<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.25rem;">${r.time}</div>` : ''}
@@ -1076,8 +1102,11 @@
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
                         Verified Google Review
                     </div>
-                </div>
-            `).join('');
+                </div>`;
+
+            const allCards = reviews.map(makeCard).join('');
+            // Duplicate cards for seamless infinite marquee loop
+            track.innerHTML = allCards + allCards;
         }
 
         // Fallback Reviews (static 5-star) ────────────────────────────────
