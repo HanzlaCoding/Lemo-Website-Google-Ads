@@ -621,11 +621,40 @@
             margin-top: 0.15rem;
         }
 
-        .reviews-loading {
-            text-align: center;
-            color: rgba(30, 41, 59, 0.45);
-            padding: 2rem 0;
-            font-style: italic;
+        .reviews-loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 0;
+            width: 100%;
+        }
+
+        .reviews-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(212, 175, 55, 0.1);
+            border-top: 3px solid var(--primary-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+
+        .reviews-loader-text {
+            color: #475569;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .review-google-badge {
@@ -829,8 +858,14 @@
         </div>
 
         <div class="reviews-marquee-outer" id="reviewsMarqueeOuter">
-            <div class="reviews-track" id="reviewsGrid">
-                <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+            <!-- Loading Screen -->
+            <div id="reviewsLoader" class="reviews-loader-container">
+                <div class="reviews-spinner"></div>
+                <div class="reviews-loader-text">Fetching Premium Reviews...</div>
+            </div>
+
+            <div class="reviews-track" id="reviewsGrid" style="display: none;">
+                <!-- Review cards will be injected here -->
             </div>
         </div>
 
@@ -1004,7 +1039,7 @@
                     <a href="#" class="logo" style="color:#1e293b;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 17H19M5 12H19M5 7H19" stroke="#d4af37" stroke-width="2"
-                                stroke-linecap="round" />
+                                stroke-linecap="round" />vv
                         </svg>
                         Luxury Limo <span>Detroit</span>
                     </a>
@@ -1120,8 +1155,19 @@
         // Render reviews to DOM ────────────────────────────────────────────
         function renderReviews(reviews) {
             const track = document.getElementById('reviewsGrid');
+            const loader = document.getElementById('reviewsLoader');
+
+            if (loader) {
+                loader.style.display = 'none';
+            }
+            if (track) {
+                track.style.display = 'flex';
+            }
+
             if (!reviews || reviews.length === 0) {
-                track.innerHTML = '<p class="reviews-loading">No 5-star reviews found yet.</p>';
+                if (track) {
+                    track.innerHTML = '<div class="reviews-loader-text" style="padding: 2rem 0;">No 5-star reviews found yet.</div>';
+                }
                 return;
             }
             const makeCard = r => {
