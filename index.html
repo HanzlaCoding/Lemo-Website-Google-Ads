@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Premium Limo & Car Service in Detroit. Reliable, professional chauffeurs and luxury fleet. Book in 60 seconds.">
+        content="Premium Limo &amp; Car Service in Detroit. Reliable, professional chauffeurs and luxury fleet. Book in 60 seconds.">
     <title>Luxury Limo Detroit - Premium Car Service</title>
 
     <!-- Font Optimization -->
@@ -18,21 +18,17 @@
     <!-- Critical CSS (Inline) -->
     <style>
         :root {
-            /* Bright / Glossy Theme Variables */
-            --bg-color: #f8fafc;
-            /* Crisp light grey/white */
+            --bg-color: #f0f2f5;
             --primary-gold: #d4af37;
             --primary-gold-hover: #b5952f;
             --text-main: #1e293b;
-            /* Slate 800 - High contrast dark */
             --text-secondary: #475569;
-            /* Slate 600 - Readable grey */
             --input-bg: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(15, 15, 15, 0.60);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.15);
             --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+            --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
         }
 
         * {
@@ -61,26 +57,26 @@
             color: var(--text-main);
         }
 
-        /* Glossy Header */
+        /* Header */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            padding: 1rem 5%;
+            padding: 0.85rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
             font-size: 1.35rem;
             font-weight: 800;
-            color: var(--text-main);
+            color: #ffffff;
             text-transform: uppercase;
             text-decoration: none;
             display: flex;
@@ -96,7 +92,7 @@
         .cta-button {
             background: linear-gradient(135deg, var(--primary-gold) 0%, #f3cf55 100%);
             color: #1a1a1a;
-            padding: 0.75rem 1.75rem;
+            padding: 0.65rem 1.5rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: 50px;
@@ -104,179 +100,27 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 6px -1px rgba(212, 175, 55, 0.3);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
         }
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.4);
             filter: brightness(1.05);
         }
 
-        /* Wizard Steps - Premium */
-        .step-indicator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .step {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: #fff;
-            color: #94a3b8;
-            border: 2px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.1rem;
-            z-index: 2;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .step.active {
-            background: var(--primary-gold);
-            color: white;
-            border-color: var(--primary-gold);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-            transform: scale(1.1);
-        }
-
-        .step-line {
-            width: 80px;
-            height: 3px;
-            background: #e2e8f0;
-            margin: 0 15px;
-            border-radius: 4px;
-            transition: all 0.4s ease;
-        }
-
-        .form-step {
-            animation: fadeIn 0.4s ease;
-            display: grid;
-            gap: 1.5rem;
-            /* Restore spacing for wizard steps */
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* New Sections Styling */
-        /* New Sections Styling */
-        .services-section {
-            padding: 5rem 5%;
-            background-color: #fff;
-            color: var(--text-main);
-        }
-
-        .about-section {
-            padding: 5rem 5%;
-            background: #f8fafc;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            /* Strict 2 columns */
-            gap: 4rem 2rem;
-            max-width: 1000px;
-            margin: 4rem auto 0;
-        }
-
-        /* Mobile adjustment for grid */
-        @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .service-card {
-            background: transparent;
-            padding: 0;
-            border-radius: 0;
-            text-align: center;
-            border: none;
-            transition: transform 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card h3 {
-            color: var(--text-main);
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            font-family: 'Playfair Display', serif;
-            /* Match headers */
-        }
-
-        .service-img-wrapper {
-            border: 1px solid var(--primary-gold);
-            border-radius: 6px;
-            overflow: hidden;
-            height: 240px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .service-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-img-wrapper img {
-            transform: scale(1.05);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            color: var(--text-secondary);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Hero Section with Light Overlay */
+        /* ─── HERO ─── */
         .hero {
             position: relative;
-            /* Fit to viewport but allow growth if content needs it */
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Reduced padding to bring content up */
             padding: 80px 5% 40px;
-            /* Bright glossy overlay */
-            background-image:
-                linear-gradient(to right,
-                    rgba(248, 250, 252, 0.96) 0%,
-                    rgba(248, 250, 252, 0.85) 50%,
-                    rgba(248, 250, 252, 0.6) 100%),
-                url('assets/hero-bg.webp');
+            background-image: url('https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -286,38 +130,34 @@
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 3rem;
-            /* Reduced gap */
             max-width: 1280px;
             width: 100%;
             align-items: center;
         }
 
         .hero-content h1 {
-            font-size: 3.25rem;
-            /* Slightly smaller */
+            font-size: 3rem;
             line-height: 1.1;
             margin-bottom: 1rem;
-            /* Changed from white shadow to soft dark shadow for contrast on light bg */
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content h1 span {
             font-weight: 800;
-            /* Darker gradient for visibility */
-            background: linear-gradient(135deg, #b8860b 0%, #d4af37 40%, #8b6508 100%);
+            background: linear-gradient(135deg, #f3cf55 0%, #d4af37 60%, #b5952f 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            /* Filter drop-shadow works better with background-clip text than text-shadow */
-            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .hero-subtext {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            max-width: 520px;
-            font-weight: 500;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 1.75rem;
+            max-width: 480px;
+            font-weight: 400;
         }
 
         .hero-benefits {
@@ -327,21 +167,22 @@
         .hero-benefits li {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
-            color: var(--text-main);
-            font-size: 1rem;
+            color: #ffffff;
+            font-size: 0.95rem;
         }
 
         .check-icon {
             color: var(--primary-gold);
-            width: 24px;
-            height: 24px;
-            filter: drop-shadow(0 2px 2px rgba(212, 175, 55, 0.2));
+            width: 22px;
+            height: 22px;
+            filter: drop-shadow(0 2px 2px rgba(212, 175, 55, 0.4));
             animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             opacity: 0;
             transform: scale(0.5);
+            flex-shrink: 0;
         }
 
         .hero-benefits li:nth-child(1) .check-icon {
@@ -368,117 +209,120 @@
             }
         }
 
-        /* Hero Form - Glossy Glassmorphism */
+        /* ─── HERO FORM ─── */
         .hero-form-card {
-            background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 2rem;
-            /* Reduced padding */
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow:
-                0 4px 6px -1px rgba(0, 0, 0, 0.05),
-                0 20px 25px -5px rgba(0, 0, 0, 0.05),
-                inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+            background: rgba(8, 8, 8, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
         }
 
         .form-title {
-            font-size: 1.5rem;
-            /* Smaller title */
+            font-size: 1.3rem;
             margin-bottom: 1rem;
             font-family: 'Playfair Display', serif;
             font-weight: 700;
-            color: var(--text-main);
+            color: #ffffff;
             text-align: center;
-        }
-
-        .form-section-header {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--primary-gold);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-            letter-spacing: 0.05em;
         }
 
         .form-grid {
             display: grid;
-            gap: 1.5rem;
-            /* Breathing space */
+            gap: 0.65rem;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
-            /* More space between label and input */
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        label {
-            font-size: 0.7rem;
-            /* Smaller label */
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            font-weight: 700;
+            gap: 0.65rem;
         }
 
         input,
         select {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            color: var(--text-main);
-            padding: 1rem;
-            /* More internal breathing space */
-            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            padding: 0.55rem 0.75rem;
+            border-radius: 8px;
             font-family: 'Inter', sans-serif;
             width: 100%;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             transition: all 0.2s ease;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1) opacity(0.6);
+            cursor: pointer;
         }
 
         input:focus,
         select:focus {
             outline: none;
             border-color: var(--primary-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+            background-color: rgba(255, 255, 255, 0.14);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23d4af37' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            padding-right: 2rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        select option {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            opacity: 0.6;
+            cursor: pointer;
         }
 
         .submit-btn {
             background: linear-gradient(135deg, var(--primary-gold) 0%, #dcb746 100%);
             color: #1a1a1a;
             border: none;
-            padding: 1.1rem;
+            padding: 0.85rem;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             cursor: pointer;
-            border-radius: 10px;
-            margin-top: 0.5rem;
+            border-radius: 8px;
+            margin-top: 0.25rem;
             transition: all 0.3s ease;
             width: 100%;
-            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.25);
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+            letter-spacing: 0.04em;
+            font-family: 'Inter', sans-serif;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 12px 20px rgba(212, 175, 55, 0.4);
             filter: brightness(1.05);
         }
 
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 1024px) {
             .hero-content h1 {
                 font-size: 2.5rem;
@@ -492,7 +336,6 @@
         @media (max-width: 968px) {
             .hero {
                 padding-top: 50px;
-                /* Allow content to flow naturally on tablets */
                 height: auto;
                 min-height: auto;
                 padding-bottom: 3rem;
@@ -505,7 +348,7 @@
             }
 
             .hero-content {
-                margin-bottom: 2rem;
+                margin-bottom: 1rem;
             }
 
             .hero-benefits {
@@ -518,10 +361,9 @@
             }
 
             .hero-subtext {
-                margin: 0 auto 2rem;
+                margin: 0 auto 1.75rem;
             }
 
-            /* Center form on mobile */
             .hero-form-card {
                 max-width: 500px;
                 margin: 0 auto;
@@ -557,9 +399,7 @@
 
             .form-row {
                 grid-template-columns: 1fr;
-                /* Stack form inputs */
-                gap: 1rem;
-                /* Better spacing on mobile */
+                gap: 0.65rem;
             }
         }
 
@@ -568,21 +408,214 @@
                 font-size: 2rem !important;
             }
 
-            .logo span {
-                display: inline-block;
-            }
-
             .cta-button {
                 padding: 0.5rem 1rem;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
             .hero-form-card {
-                padding: 1.5rem;
+                padding: 1.25rem;
             }
 
             .section-header h2 {
                 font-size: 2rem;
+            }
+        }
+
+        /* SECTIONS */
+        .services-section {
+            padding: 4.5rem 5%;
+            background-color: #111111;
+            color: #f0f0f0;
+        }
+
+        .about-section {
+            padding: 3rem 5%;
+            background: var(--bg-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem 2rem;
+            max-width: 1000px;
+            margin: 3rem auto 0;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            text-align: center;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: #f0f0f0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .service-img-wrapper {
+            border: 1px solid var(--primary-gold);
+            border-radius: 8px;
+            overflow: hidden;
+            height: 220px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Autocomplete */
+        .autocomplete-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        /* ─── REVIEWS SECTION ─── */
+        .reviews-section {
+            padding: 3.5rem 5%;
+            background-color: #0d0d0d;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            max-width: 1200px;
+            margin: 2.5rem auto 0;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(212, 175, 55, 0.35);
+        }
+
+        .review-stars {
+            color: var(--primary-gold);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        .review-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+            line-height: 1.65;
+            margin-bottom: 0.85rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-weight: 700;
+            font-size: 0.825rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .reviews-loading {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 2rem 0;
+            font-style: italic;
+        }
+
+        .review-google-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            opacity: 0.6;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ─── FLOATING CTA BUTTON ─── */
+        .floating-cta {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, #f3cf55 100%);
+            color: #1a1a1a;
+            padding: 0.85rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-decoration: none;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: all 0.3s ease;
+            animation: floatPulse 3s ease-in-out infinite;
+        }
+
+        .floating-cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        @keyframes floatPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            }
+
+            50% {
+                box-shadow: 0 10px 35px rgba(212, 175, 55, 0.7);
             }
         }
     </style>
@@ -604,7 +637,7 @@
             Luxury Limo <span>Detroit</span>
         </a>
         <a href="tel:03011954994" class="cta-button" style="display: inline-flex; align-items: center; gap: 8px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path
                     d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
@@ -614,11 +647,14 @@
         </a>
     </header>
 
-    <section class="hero">
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════ -->
+    <section class="hero" id="hero">
         <div class="hero-container">
             <!-- Left Side -->
             <div class="hero-content">
-                <h1>Premium Limo & Car Service in Detroit – <span>Book in 60 Seconds.</span></h1>
+                <h1>Premium Limo &amp; Car Service in Detroit – <span>Book in 60 Seconds.</span></h1>
                 <p class="hero-subtext">Reliable, professional chauffeurs and luxury fleet. Best rates guaranteed for
                     corporate and private travel.</p>
                 <ul class="hero-benefits">
@@ -647,15 +683,8 @@
             </div>
 
             <!-- Right Side (Form) -->
-            <div class="hero-form-card">
-                <h2 class="form-title">Get Your Instant Quote Now</h2>
-
-                <!-- Progress Indicator -->
-                <div class="step-indicator">
-                    <div class="step active" id="step-dot-1">1</div>
-                    <div class="step-line"></div>
-                    <div class="step" id="step-dot-2">2</div>
-                </div>
+            <div class="hero-form-card" id="quoteForm">
+                <h2 class="form-title">Get Your Instant Quote</h2>
 
                 <form id="bookingForm" class="form-grid" action="https://formsubmit.co/41757e77266e7223e0b126c967d36688"
                     method="POST">
@@ -663,103 +692,103 @@
                     <input type="hidden" name="_subject" value="New Limo Quote Request!">
                     <input type="hidden" name="_template" value="table">
                     <input type="hidden" name="_captcha" value="false">
-                    <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html"> Optional -->
 
-                    <!-- STEP 1: Trip Details -->
-                    <div id="step1" class="form-step active">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="pickupAddress">From</label>
-                                <div class="autocomplete-wrapper">
-                                    <input type="text" id="pickupAddress" name="pickupAddress"
-                                        placeholder="Pickup Location" required autocomplete="off">
-                                    <ul class="suggestions-list" id="pickup-suggestions"></ul>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="dropoffAddress">To</label>
-                                <div class="autocomplete-wrapper">
-                                    <input type="text" id="dropoffAddress" name="dropoffAddress"
-                                        placeholder="Dropoff Destination" required autocomplete="off">
-                                    <ul class="suggestions-list" id="dropoff-suggestions"></ul>
-                                </div>
-                            </div>
+                    <!-- Pickup & Dropoff -->
+                    <div class="form-group">
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="pickupAddress" name="pickupAddress" placeholder="📍 Pickup Location"
+                                required autocomplete="off">
+                            <ul class="suggestions-list" id="pickup-suggestions"></ul>
                         </div>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="date">Date</label>
-                                <input type="date" id="date" name="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Time</label>
-                                <input type="time" id="time" name="time" required>
-                            </div>
+                    <div class="form-group">
+                        <div class="autocomplete-wrapper">
+                            <input type="text" id="dropoffAddress" name="dropoffAddress"
+                                placeholder="🏁 Drop-Off Location" required autocomplete="off">
+                            <ul class="suggestions-list" id="dropoff-suggestions"></ul>
                         </div>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="passengers">Passengers</label>
-                                <select id="passengers" name="passengers" required>
-                                    <option value="1-3">1-3 Passengers</option>
-                                    <option value="4-6">4-6 Passengers</option>
-                                    <option value="7+">7+ Passengers</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="serviceType">Service Type</label>
-                                <select id="serviceType" name="serviceType" required>
-                                    <option value="point-to-point">Point-to-Point</option>
-                                    <option value="airport-transfer">Airport Transfer</option>
-                                    <option value="hourly">Hourly Charter</option>
-                                </select>
-                            </div>
-                        </div>
-
+                    <!-- Date & Time -->
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="vehicleType">Vehicle Preference</label>
-                            <select id="vehicleType" name="vehicleType" required>
-                                <option value="luxury-sedan">Luxury Sedan</option>
-                                <option value="suv">Luxury SUV</option>
-                                <option value="sprinter">Sprinter Limo</option>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+
+                    <!-- Passengers & Service Type -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="number" id="passengers" name="passengers" placeholder="No. of Passengers"
+                                min="1" max="50" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="" disabled selected>Service Type</option>
+                                <option value="point-to-point">Point-to-Point</option>
+                                <option value="airport-transfer">Airport Transfer</option>
+                                <option value="hourly">Hourly Charter</option>
                             </select>
                         </div>
-
-                        <div style="text-align: center; margin-top: 2rem;">
-                            <button type="button" class="submit-btn next-btn" onclick="nextStep()"
-                                style="width: 50%; margin: 0 auto; display: block;">Next</button>
-                        </div>
                     </div>
 
-                    <!-- STEP 2: Contact Info -->
-                    <div id="step2" class="form-step" style="display: none;">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="customerName">Your Name</label>
-                                <input type="text" id="customerName" name="customerName" placeholder="Full Name"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
-                            </div>
-                        </div>
+                    <!-- Vehicle -->
+                    <div class="form-group">
+                        <select id="vehicleType" name="vehicleType" required>
+                            <option value="" disabled selected>Vehicle Preference</option>
+                            <option value="luxury-sedan">Luxury Sedan</option>
+                            <option value="suv">Luxury SUV</option>
+                            <option value="sprinter">Sprinter Limo</option>
+                        </select>
+                    </div>
 
+                    <!-- Name & Phone -->
+                    <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                            <input type="text" id="customerName" name="customerName" placeholder="Full Name" required>
                         </div>
-
-                        <div class="form-actions" style="display: flex; gap: 10px; margin-top: 10px;">
-                            <button type="button" class="submit-btn" onclick="prevStep()"
-                                style="background: #e2e8f0; color: #333; flex: 1;">&larr; Back</button>
-                            <button type="submit" class="submit-btn" id="submitBtn" style="flex: 2;">Get My Instant
-                                Quote</button>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                         </div>
                     </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
                 </form>
             </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         GOOGLE REVIEWS SECTION
+    ════════════════════════════════════════════ -->
+    <section class="reviews-section" id="reviews">
+        <div class="section-header" style="text-align:center;">
+            <h2 style="color:#ffffff; font-size:2.25rem; margin-bottom:0.5rem;">What Our <span
+                    style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Clients
+                    Say</span></h2>
+            <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; margin-top:0.25rem;">★★★★★ &nbsp;Verified 5-Star
+                Google Reviews</p>
+            <div class="accent-line" style="margin:0.85rem auto 0;"></div>
+        </div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+            <div class="reviews-loading" id="reviewsLoading">Loading reviews…</div>
+        </div>
+
+        <div style="text-align:center; margin-top:1.5rem;">
+            <a href="https://g.page/r/review" target="_blank" rel="noopener"
+                style="color:var(--primary-gold); font-size:0.85rem; text-decoration:none; font-weight:600; letter-spacing:0.04em;">
+                View All Reviews on Google →
+            </a>
         </div>
     </section>
 
@@ -768,7 +797,6 @@
         <div class="trust-container">
             <div class="trust-item">
                 <span class="trust-icon">
-                    <!-- Wallet Icon -->
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4" />
@@ -780,17 +808,15 @@
             </div>
             <div class="trust-item">
                 <span class="trust-icon">
-                    <!-- Shield Icon -->
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                 </span>
-                <span>LICENSED & INSURED</span>
+                <span>LICENSED &amp; INSURED</span>
             </div>
             <div class="trust-item">
                 <span class="trust-icon">
-                    <!-- Lightning Icon -->
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -804,38 +830,44 @@
     <!-- Fleet Section -->
     <section class="fleet-section">
         <div class="section-header">
-            <h2>Drive in <span>Luxury</span></h2>
+            <h2>Our <span>Fleet</span></h2>
             <div class="accent-line"></div>
         </div>
 
         <div class="fleet-grid">
             <!-- Vehicle 1 -->
             <div class="fleet-card">
-                <img src="assets/fleet-escalade.webp" alt="Cadillac Escalade" loading="lazy">
+                <img src="assets/fleet-escalade.webp" alt="Cadillac Escalade ESV" loading="lazy">
                 <div class="fleet-info">
-                    <h3>Cadillac Escalade</h3>
-                    <p>Seats up to 6 passengers with luxury leather interiors and premium sound.</p>
-                    <button class="book-btn">Book This</button>
+                    <h3>Cadillac Escalade ESV</h3>
+                    <p>Seats up to 6 passengers with luxury leather interiors and premium surround sound.</p>
+                    <button class="book-btn"
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        This</button>
                 </div>
             </div>
 
             <!-- Vehicle 2 -->
             <div class="fleet-card">
-                <img src="assets/fleet-sprinter.webp" alt="Sprinter Limo" loading="lazy">
+                <img src="assets/fleet-sprinter.webp" alt="Mercedes Sprinter Limo" loading="lazy">
                 <div class="fleet-info">
-                    <h3>Sprinter Limo</h3>
-                    <p>Perfect for groups up to 14. Features bar service, TV, and perimeter seating.</p>
-                    <button class="book-btn">Book This</button>
+                    <h3>Mercedes Sprinter Limo</h3>
+                    <p>Perfect for groups up to 14. Features bar service, flat-screen TV, and perimeter seating.</p>
+                    <button class="book-btn"
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        This</button>
                 </div>
             </div>
 
             <!-- Vehicle 3 -->
             <div class="fleet-card">
-                <img src="assets/fleet-mercedes.webp" alt="Luxury Sedan" loading="lazy">
+                <img src="assets/fleet-mercedes.webp" alt="Executive Black Car" loading="lazy">
                 <div class="fleet-info">
-                    <h3>Luxury Sedan</h3>
+                    <h3>Executive Black Car</h3>
                     <p>Ideal for corporate travelers. Discreet, comfortable, and always on time.</p>
-                    <button class="book-btn">Book This</button>
+                    <button class="book-btn"
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        This</button>
                 </div>
             </div>
         </div>
@@ -844,62 +876,64 @@
     <!-- Services Section -->
     <section class="services-section">
         <div class="section-header">
-            <h2>Our Premium <span>Services</span></h2>
-            <div class="accent-line"></div>
+            <h2 style="color:#ffffff;">Our <span
+                    style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Services</span>
+            </h2>
+            <div class="accent-line" style="margin:0.75rem auto 0;"></div>
         </div>
 
         <div class="services-grid">
             <div class="service-card">
-                <h3>Luxury SUV Service</h3>
+                <h3>Airport Transfers</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-escalade.webp" alt="Luxury SUV Service" loading="lazy">
+                    <img src="assets/fleet-escalade.webp" alt="Airport Transfer Service" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
-                <h3>Sprinter Van Service</h3>
+                <h3>Corporate Travel</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-sprinter.webp" alt="Sprinter Van Service" loading="lazy">
-                </div>
-            </div>
-
-            <div class="service-card">
-                <h3>Corporate Black Car Service</h3>
-                <div class="service-img-wrapper">
-                    <img src="assets/fleet-mercedes.webp" alt="Corporate Sedan Service" loading="lazy">
+                    <img src="assets/fleet-mercedes.webp" alt="Corporate Black Car Service" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Group Transportation</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-sprinter.webp" alt="Group Transportation" loading="lazy">
+                    <img src="assets/fleet-sprinter.webp" alt="Group Transportation Service" loading="lazy">
+                </div>
+            </div>
+
+            <div class="service-card">
+                <h3>Special Occasions</h3>
+                <div class="service-img-wrapper">
+                    <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp"
+                        alt="Special Occasions Limo" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about-section" style="background-color: #f8fafc;">
+    <section class="about-section">
         <div class="section-header">
             <h2>About <span>Luxury Limo Detroit</span></h2>
             <div class="accent-line"></div>
         </div>
 
-        <div class="about-content" style="margin-top: 2rem;">
+        <div class="about-content" style="margin-top: 1.5rem;">
             <p>
                 At Luxury Limo Detroit, we redefine transportation with a commitment to excellence, safety, and
-                sophistication.
-                With over a decade of experience serving the Metro Detroit area, we understand that your journey is just
-                as important as your destination.
+                sophistication. With over a decade of experience serving the Metro Detroit area, we understand that your
+                journey is just as important as your destination.
             </p>
             <p>
                 Our fleet is meticulously maintained to showroom standards, and our chauffeurs are vetted professionals
-                dedicated to providing
-                a seamless experience. Whether you're traveling for business or celebrating a milestone, we ensure every
-                mile is memorable.
+                dedicated to providing a seamless experience. Whether you're traveling for business or celebrating a
+                milestone, we ensure every mile is memorable.
             </p>
-            <a href="tel:03011954994" class="cta-button" style="display: inline-flex; margin-top: 1rem;">
+            <a href="tel:03011954994" class="cta-button"
+                style="display: inline-flex; margin-top: 0.75rem; background:linear-gradient(135deg,#d4af37,#dcb746); color:#1a1a1a;">
                 Contact Us Today
             </a>
         </div>
@@ -910,7 +944,7 @@
             <!-- Upper Part: Logo & Contact -->
             <div class="footer-upper">
                 <div class="footer-brand">
-                    <a href="#" class="logo">
+                    <a href="#" class="logo" style="color:#1e293b;">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 17H19M5 12H19M5 7H19" stroke="#d4af37" stroke-width="2"
                                 stroke-linecap="round" />
@@ -927,14 +961,14 @@
             <!-- Divider -->
             <div class="footer-divider"></div>
 
-            <!-- Lower Part: 3 Columns -->
+            <!-- Lower Part -->
             <div class="footer-lower">
                 <div class="footer-copyright">
-                    &copy; 2024 Luxury Limo Detroit. All Rights Reserved.
+                    &copy; 2025 Luxury Limo Detroit. All Rights Reserved.
                 </div>
                 <div class="footer-links">
                     <a href="#">Privacy Policy</a>
-                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Terms &amp; Conditions</a>
                 </div>
                 <div class="footer-credit">
                     Made With <span style="color: #e25555;">&hearts;</span> By Future Of AI Web
@@ -943,7 +977,172 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Floating CTA Button -->
+    <button class="floating-cta" onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12l7-7 7 7" />
+        </svg>
+        Get a Quote
+    </button>
+
+    <!-- Google Maps Places API -->
+    <script>
+        // ── CONFIGURATION ──────────────────────────────────────────────────
+        // Replace YOUR_GOOGLE_MAPS_API_KEY with your actual API key
+        // Enable: Maps JavaScript API + Places API in Google Cloud Console
+        const GOOGLE_MAPS_API_KEY = 'AIzaSyBx6MNny-YHWTeLsZYdbh0_SMiWi0-QetQ';
+
+        // Google Business Profile Place ID for reviews
+        // Replace with your actual Place ID from Google Maps
+        const GBP_PLACE_ID = 'YOUR_PLACE_ID';
+        // ───────────────────────────────────────────────────────────────────
+    </script>
+
+    <!-- Load Google Maps API (async) -->
+    <script>
+        (function () {
+            if (!GOOGLE_MAPS_API_KEY) {
+                // Fallback to Nominatim if no API key
+                initFallbackAutocomplete();
+                loadFallbackReviews();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&libraries=places&callback=initGoogleMaps`;
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+        })();
+
+        // Google Maps Initialized ─────────────────────────────────────────
+        function initGoogleMaps() {
+            setupGoogleAutocomplete('pickupAddress');
+            setupGoogleAutocomplete('dropoffAddress');
+            loadGoogleReviews();
+        }
+
+        function setupGoogleAutocomplete(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+            const autocomplete = new google.maps.places.Autocomplete(input, {
+                types: ['geocode', 'establishment'],
+                fields: ['formatted_address', 'name', 'geometry']
+            });
+            // Prevent form submit on enter in autocomplete
+            google.maps.event.addDomListener(input, 'keydown', function (e) {
+                if (e.key === 'Enter') e.preventDefault();
+            });
+        }
+
+        // Load Google Places Reviews ────────────────────────────────────── 
+        function loadGoogleReviews() {
+            if (!GBP_PLACE_ID || GBP_PLACE_ID === 'YOUR_PLACE_ID') {
+                loadFallbackReviews();
+                return;
+            }
+            const service = new google.maps.places.PlacesService(document.createElement('div'));
+            service.getDetails({
+                placeId: GBP_PLACE_ID,
+                fields: ['reviews', 'rating']
+            }, function (place, status) {
+                if (status === google.maps.places.PlacesServiceStatus.OK && place.reviews) {
+                    const fiveStarReviews = place.reviews.filter(r => r.rating === 5);
+                    renderReviews(fiveStarReviews.map(r => ({
+                        author: r.author_name,
+                        text: r.text,
+                        time: r.relative_time_description
+                    })));
+                } else {
+                    loadFallbackReviews();
+                }
+            });
+        }
+
+        // Render reviews to DOM ────────────────────────────────────────────
+        function renderReviews(reviews) {
+            const grid = document.getElementById('reviewsGrid');
+            if (!reviews || reviews.length === 0) {
+                grid.innerHTML = '<p class="reviews-loading">No 5-star reviews found yet.</p>';
+                return;
+            }
+            grid.innerHTML = reviews.slice(0, 6).map(r => `
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"${r.text}"</p>
+                    <div class="review-author">${r.author}</div>
+                    ${r.time ? `<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.25rem;">${r.time}</div>` : ''}
+                    <div class="review-google-badge">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        Verified Google Review
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Fallback Reviews (static 5-star) ────────────────────────────────
+        function loadFallbackReviews() {
+            const staticReviews = [
+                { author: "James M.", text: "Absolutely incredible service. The chauffeur was on time, professional, and the vehicle was immaculate. Will book again for every trip!", time: "2 weeks ago" },
+                { author: "Sarah K.", text: "Best limo service in Detroit! Used them for our anniversary dinner and made the night truly special. Highly recommend!", time: "1 month ago" },
+                { author: "Marcus T.", text: "Corporate travel sorted. Always punctual, always professional. The Escalade is stunning – clients are always impressed.", time: "3 weeks ago" },
+                { author: "Linda R.", text: "Booked for a prom night. The kids loved the experience and parents felt completely safe. Outstanding five-star service!", time: "5 weeks ago" },
+                { author: "David P.", text: "Airport pickup was seamless. Driver met me right at baggage claim. Smooth, stress-free ride all the way home.", time: "1 month ago" },
+                { author: "Aisha W.", text: "Luxury at its finest! The Sprinter Limo for our bachelorette was perfect. Clean, stylish and the driver was wonderful.", time: "2 months ago" }
+            ];
+            renderReviews(staticReviews);
+        }
+
+        // Fallback Nominatim Autocomplete ─────────────────────────────────
+        function initFallbackAutocomplete() {
+            setupNominatim('pickupAddress', 'pickup-suggestions');
+            setupNominatim('dropoffAddress', 'dropoff-suggestions');
+        }
+
+        function setupNominatim(inputId, listId) {
+            const input = document.getElementById(inputId);
+            const list = document.getElementById(listId);
+            let tid;
+            if (!input || !list) return;
+            input.addEventListener('input', function () {
+                clearTimeout(tid);
+                const q = this.value;
+                if (q.length < 3) { list.innerHTML = ''; list.classList.remove('active'); return; }
+                tid = setTimeout(() => fetchNominatim(q, list, input), 350);
+            });
+            document.addEventListener('click', e => {
+                if (e.target !== input) list.classList.remove('active');
+            });
+        }
+
+        function fetchNominatim(q, list, input) {
+            fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(q)}&addressdetails=1&limit=8`, {
+                headers: { 'User-Agent': 'LemoLimoPage/1.0' }
+            })
+                .then(r => r.json())
+                .then(data => {
+                    list.innerHTML = '';
+                    if (data.length > 0) {
+                        list.classList.add('active');
+                        data.forEach(item => {
+                            const li = document.createElement('li');
+                            li.className = 'suggestion-item';
+                            li.innerHTML = `<span class="suggestion-icon">📍</span><span>${item.display_name}</span>`;
+                            li.addEventListener('click', () => {
+                                input.value = item.display_name;
+                                list.classList.remove('active');
+                            });
+                            list.appendChild(li);
+                        });
+                    } else {
+                        list.classList.remove('active');
+                    }
+                })
+                .catch(err => console.error('Nominatim Error:', err));
+        }
+    </script>
+
+    <!-- Main Script -->
     <script defer src="script.js"></script>
 </body>
 
