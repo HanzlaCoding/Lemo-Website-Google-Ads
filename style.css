@@ -5,7 +5,7 @@
 
 /* Trust Bar */
 .trust-bar {
-    background-color: #1a1a1a;
+    background-color: #252525;
     border-bottom: 1px solid rgba(212,175,55,0.15);
     padding: 1.5rem 0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
@@ -161,14 +161,13 @@
 
 .book-btn:hover {
     background-color: var(--primary-gold);
-    color: #fff;
-    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    color: #1a1a1a;
     transform: translateY(-1px);
 }
 
 /* ─── FOOTER ─── */
 footer {
-    background-color: #1a1a1a;
+    background-color: #252525;
     border-top: 1px solid rgba(212,175,55,0.15);
     margin-top: 0;
 }

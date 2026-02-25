@@ -311,14 +311,12 @@
             margin-top: 0.25rem;
             transition: all 0.3s ease;
             width: 100%;
-            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
             letter-spacing: 0.04em;
             font-family: 'Inter', sans-serif;
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 20px rgba(212, 175, 55, 0.4);
             filter: brightness(1.05);
         }
 
@@ -425,7 +423,7 @@
         /* SECTIONS */
         .services-section {
             padding: 4.5rem 5%;
-            background-color: #111111;
+            background-color: #1e1e1e;
             color: #f0f0f0;
         }
 
@@ -511,7 +509,15 @@
         /* ─── REVIEWS SECTION ─── */
         .reviews-section {
             padding: 3.5rem 5%;
-            background-color: #0d0d0d;
+            background-color: #f2f3f5;
+        }
+
+        .reviews-section .section-header h2 {
+            color: #1e293b;
+        }
+
+        .reviews-section .accent-line {
+            background: linear-gradient(90deg, var(--primary-gold), #b5952f);
         }
 
         /* ─── MARQUEE TRACK ─── */
@@ -545,19 +551,23 @@
         }
 
         .review-card {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.07);
             border-radius: 12px;
             padding: 1.25rem;
             width: 300px;
+            height: 240px;
+            display: flex;
+            flex-direction: column;
             flex-shrink: 0;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
             cursor: default;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .review-card:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            border-color: rgba(212, 175, 55, 0.35);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: rgba(212, 175, 55, 0.4);
         }
 
         .review-stars {
@@ -568,11 +578,17 @@
         }
 
         .review-text {
-            color: rgba(255, 255, 255, 0.8);
+            color: #475569;
             font-size: 0.875rem;
-            line-height: 1.65;
+            line-height: 1.6;
             margin-bottom: 0.85rem;
             font-style: italic;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-clamp: 4;
         }
 
         .review-author {
@@ -583,9 +599,31 @@
             letter-spacing: 0.05em;
         }
 
+        .review-card-footer {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            margin-top: auto;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(212, 175, 55, 0.35);
+            flex-shrink: 0;
+        }
+
+        .review-time {
+            font-size: 0.72rem;
+            color: rgba(30, 41, 59, 0.4);
+            margin-top: 0.15rem;
+        }
+
         .reviews-loading {
             text-align: center;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(30, 41, 59, 0.45);
             padding: 2rem 0;
             font-style: italic;
         }
@@ -594,10 +632,9 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-top: 1rem;
-            opacity: 0.6;
+            opacity: 0.55;
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #475569;
         }
 
         /* ─── FLOATING CTA BUTTON ─── */
@@ -613,7 +650,7 @@
             font-weight: 700;
             font-size: 0.875rem;
             text-decoration: none;
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -623,24 +660,11 @@
             text-transform: uppercase;
             letter-spacing: 0.04em;
             transition: all 0.3s ease;
-            animation: floatPulse 3s ease-in-out infinite;
         }
 
         .floating-cta:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.6);
-        }
-
-        @keyframes floatPulse {
-
-            0%,
-            100% {
-                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 10px 35px rgba(212, 175, 55, 0.7);
-            }
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
         }
     </style>
 
@@ -796,11 +820,11 @@
     ════════════════════════════════════════════ -->
     <section class="reviews-section" id="reviews">
         <div class="section-header" style="text-align:center;">
-            <h2 style="color:#ffffff; font-size:2.25rem; margin-bottom:0.5rem;">What Our <span
+            <h2 style="color:#1e293b; font-size:2.25rem; margin-bottom:0.5rem;">What Our <span
                     style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Clients
                     Say</span></h2>
-            <p style="color:rgba(255,255,255,0.55); font-size:0.9rem; margin-top:0.25rem;">★★★★★ &nbsp;Verified 5-Star
-                Google Reviews</p>
+            <p style="color:#475569; font-size:0.9rem; margin-top:0.25rem;">
+                &#9733;&#9733;&#9733;&#9733;&#9733; &nbsp;Verified 5-Star Google Reviews</p>
             <div class="accent-line" style="margin:0.85rem auto 0;"></div>
         </div>
 
@@ -811,7 +835,8 @@
         </div>
 
         <div style="text-align:center; margin-top:1.5rem;">
-            <a href="https://g.page/r/review" target="_blank" rel="noopener"
+            <a href="https://www.google.com/maps/place/PETERS+TRANSIT+LLC/@40.1186104,-75.0557295,17z/data=!4m8!3m7!1s0x89c6b33cd195a323:0xbb373d3586157dca!8m2!3d40.1186063!4d-75.0531546!9m1!1b1!16s%2Fg%2F11rb2xx160?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener"
                 style="color:var(--primary-gold); font-size:0.85rem; text-decoration:none; font-weight:600; letter-spacing:0.04em;">
                 View All Reviews on Google →
             </a>
@@ -861,9 +886,10 @@
         </div>
 
         <div class="fleet-grid">
-            <!-- Vehicle 1 -->
+            <!-- Vehicle 1: Cadillac Escalade ESV -->
             <div class="fleet-card">
-                <img src="assets/fleet-escalade.webp" alt="Cadillac Escalade ESV" loading="lazy">
+                <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp"
+                    alt="Cadillac Escalade ESV Interior" loading="lazy">
                 <div class="fleet-info">
                     <h3>Cadillac Escalade ESV</h3>
                     <p>Seats up to 6 passengers with luxury leather interiors and premium surround sound.</p>
@@ -873,9 +899,10 @@
                 </div>
             </div>
 
-            <!-- Vehicle 2 -->
+            <!-- Vehicle 2: Mercedes Sprinter Limo -->
             <div class="fleet-card">
-                <img src="assets/fleet-sprinter.webp" alt="Mercedes Sprinter Limo" loading="lazy">
+                <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
+                    alt="Mercedes Sprinter Limo" loading="lazy">
                 <div class="fleet-info">
                     <h3>Mercedes Sprinter Limo</h3>
                     <p>Perfect for groups up to 14. Features bar service, flat-screen TV, and perimeter seating.</p>
@@ -885,9 +912,10 @@
                 </div>
             </div>
 
-            <!-- Vehicle 3 -->
+            <!-- Vehicle 3: Executive Black Car -->
             <div class="fleet-card">
-                <img src="assets/fleet-mercedes.webp" alt="Executive Black Car" loading="lazy">
+                <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
+                    alt="Executive Black Car" loading="lazy">
                 <div class="fleet-info">
                     <h3>Executive Black Car</h3>
                     <p>Ideal for corporate travelers. Discreet, comfortable, and always on time.</p>
@@ -902,7 +930,7 @@
     <!-- Services Section -->
     <section class="services-section">
         <div class="section-header">
-            <h2 style="color:#ffffff;">Our <span
+            <h2 style="color:#1e293b;">Our <span
                     style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Services</span>
             </h2>
             <div class="accent-line" style="margin:0.75rem auto 0;"></div>
@@ -912,21 +940,24 @@
             <div class="service-card">
                 <h3>Airport Transfers</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-escalade.webp" alt="Airport Transfer Service" loading="lazy">
+                    <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
+                        alt="Airport Transfer Service" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Corporate Travel</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-mercedes.webp" alt="Corporate Black Car Service" loading="lazy">
+                    <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
+                        alt="Corporate Black Car Service" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Group Transportation</h3>
                 <div class="service-img-wrapper">
-                    <img src="assets/fleet-sprinter.webp" alt="Group Transportation Service" loading="lazy">
+                    <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
+                        alt="Group Transportation Service" loading="lazy">
                 </div>
             </div>
 
@@ -1017,11 +1048,11 @@
         // ── CONFIGURATION ──────────────────────────────────────────────────
         // Replace YOUR_GOOGLE_MAPS_API_KEY with your actual API key
         // Enable: Maps JavaScript API + Places API in Google Cloud Console
-        const GOOGLE_MAPS_API_KEY = 'AIzaSyBx6MNny-YHWTeLsZYdbh0_SMiWi0-QetQ';
+        const GOOGLE_MAPS_API_KEY = 'AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08';
 
         // Google Business Profile Place ID for reviews
         // Replace with your actual Place ID from Google Maps
-        const GBP_PLACE_ID = 'YOUR_PLACE_ID';
+        const GBP_PLACE_ID = 'ChIJI6OV0TyzxokRyn0VhjU9N7s';
         // ───────────────────────────────────────────────────────────────────
     </script>
 
@@ -1077,7 +1108,8 @@
                     renderReviews(fiveStarReviews.map(r => ({
                         author: r.author_name,
                         text: r.text,
-                        time: r.relative_time_description
+                        time: r.relative_time_description,
+                        photo: r.profile_photo_url || null
                     })));
                 } else {
                     loadFallbackReviews();
@@ -1092,17 +1124,27 @@
                 track.innerHTML = '<p class="reviews-loading">No 5-star reviews found yet.</p>';
                 return;
             }
-            const makeCard = r => `
+            const makeCard = r => {
+                const avatarUrl = r.photo
+                    ? r.photo
+                    : `https://ui-avatars.com/api/?name=${encodeURIComponent(r.author)}&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true`;
+                return `
                 <div class="review-card">
                     <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                     <p class="review-text">"${r.text}"</p>
-                    <div class="review-author">${r.author}</div>
-                    ${r.time ? `<div style="font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.25rem;">${r.time}</div>` : ''}
-                    <div class="review-google-badge">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                        Verified Google Review
+                    <div class="review-card-footer">
+                        <img src="${avatarUrl}" alt="${r.author}" class="review-avatar"
+                             onerror="this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(r.author)}&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true'">
+                        <div>
+                            <div class="review-author">${r.author}</div>
+                            ${r.time ? `<div class="review-time">${r.time}</div>` : ''}
+                        </div>
+                        <div class="review-google-badge" style="margin-left:auto;">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                        </div>
                     </div>
                 </div>`;
+            };
 
             const allCards = reviews.map(makeCard).join('');
             // Duplicate cards for seamless infinite marquee loop
@@ -1112,12 +1154,42 @@
         // Fallback Reviews (static 5-star) ────────────────────────────────
         function loadFallbackReviews() {
             const staticReviews = [
-                { author: "James M.", text: "Absolutely incredible service. The chauffeur was on time, professional, and the vehicle was immaculate. Will book again for every trip!", time: "2 weeks ago" },
-                { author: "Sarah K.", text: "Best limo service in Detroit! Used them for our anniversary dinner and made the night truly special. Highly recommend!", time: "1 month ago" },
-                { author: "Marcus T.", text: "Corporate travel sorted. Always punctual, always professional. The Escalade is stunning – clients are always impressed.", time: "3 weeks ago" },
-                { author: "Linda R.", text: "Booked for a prom night. The kids loved the experience and parents felt completely safe. Outstanding five-star service!", time: "5 weeks ago" },
-                { author: "David P.", text: "Airport pickup was seamless. Driver met me right at baggage claim. Smooth, stress-free ride all the way home.", time: "1 month ago" },
-                { author: "Aisha W.", text: "Luxury at its finest! The Sprinter Limo for our bachelorette was perfect. Clean, stylish and the driver was wonderful.", time: "2 months ago" }
+                {
+                    author: "Joseph Mathew",
+                    text: "Excellent service to JFK. The owner/driver was on time, professional, and very helpful with our luggage. The vehicle was clean, comfortable, and perfect for traveling with family. Smooth, stress-free ride from start to finish. Highly recommend.",
+                    time: "2 months ago",
+                    photo: "https://i.pravatar.cc/150?u=joseph"
+                },
+                {
+                    author: "Matt Kolarczyk",
+                    text: "Worked with Benny and his team for a 4-day client-entertainment event and the entire experience working with them was excellent. Incredibly professional, timely, clean sprinter vans, and flexible with any changes that came up last minute. Can't recommend Peters Transit enough!",
+                    time: "9 months ago",
+                    photo: "https://i.pravatar.cc/150?u=matt"
+                },
+                {
+                    author: "Rob Fratamico",
+                    text: "Terrific service, will certainly recommend and use again.",
+                    time: "1 year ago",
+                    photo: "https://i.pravatar.cc/150?u=rob"
+                },
+                {
+                    author: "Jaison Philip",
+                    text: "Awesome pick up timing and great trip to the JFK airport. Fair pricing.",
+                    time: "1 year ago",
+                    photo: "https://i.pravatar.cc/150?u=jaison"
+                },
+                {
+                    author: "Susan Mattei",
+                    text: "Benny is the best! He was reliable, courteous, very professional, on time and a very safe driver. He drove them to several photo locations and then got them safely to the prom and back to the post prom party. The limo was beautiful, very clean. Great times had with worry-free driving!",
+                    time: "1 year ago",
+                    photo: "https://i.pravatar.cc/150?u=susan"
+                },
+                {
+                    author: "Phani Div",
+                    text: "Made a reservation to Drop off our family at Newark Airport. We had a lot of luggage. Benny was on time and very professional. Highly recommend. It was Hazzle free. Rightly priced.",
+                    time: "1 year ago",
+                    photo: "https://i.pravatar.cc/150?u=phani"
+                }
             ];
             renderReviews(staticReviews);
         }
