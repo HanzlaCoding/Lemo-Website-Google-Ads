@@ -486,7 +486,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2.5rem 2rem;
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 3rem auto 0;
         }
 
@@ -521,13 +521,14 @@
             border: 1px solid var(--primary-gold);
             border-radius: 8px;
             overflow: hidden;
-            height: 220px;
+            height: auto;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         .service-img-wrapper img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
             object-fit: cover;
             display: block;
             transition: transform 0.5s ease;
@@ -1007,10 +1008,9 @@
         <div class="fleet-grid">
             <!-- Vehicle 1 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
-                        alt="Ford Transit Van" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="Ford Transit Van" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Ford Transit Van</h3>
@@ -1024,10 +1024,9 @@
 
             <!-- Vehicle 2 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
-                        alt="Mercedes Benz Sprinter Van" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="Mercedes Benz Sprinter Van" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Mercedes Benz Sprinter Van</h3>
@@ -1041,10 +1040,9 @@
 
             <!-- Vehicle 3 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
-                        alt="Mercedes Benz Sprinter Limo" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="Mercedes Benz Sprinter Limo" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Mercedes Benz Sprinter Limo</h3>
@@ -1058,10 +1056,9 @@
 
             <!-- Vehicle 4 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/MKT_Stretch_Limousine.webp"
-                        alt="MKT Stretch Limousine" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="MKT Stretch Limousine" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>MKT Stretch Limousine</h3>
@@ -1075,10 +1072,9 @@
 
             <!-- Vehicle 5 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Continental_Stretch_Limousine.webp"
-                        alt="Continental Stretch Limousine" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="Continental Stretch Limousine" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Continental Stretch Limousine</h3>
@@ -1092,10 +1088,9 @@
 
             <!-- Vehicle 6 -->
             <div class="fleet-card">
-                <div class="fleet-img-wrapper" style="border-radius: 12px; overflow: hidden;">
+                <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Chrysler_300_Stretch_limousine.webp"
-                        alt="Chrysler 300 Stretch Limousine" loading="lazy" class="fleet-img"
-                        style="width: 100%; height: 200px; object-fit: cover;">
+                        alt="Chrysler 300 Stretch Limousine" loading="lazy" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Chrysler 300 Stretch Limousine</h3>
@@ -1121,37 +1116,33 @@
         <div class="services-grid">
             <div class="service-card">
                 <h3>Philadelphia 14 Passenger Sprinter Van</h3>
-                <div class="service-img-wrapper" style="border-radius: 12px; overflow: hidden; margin-top: 1rem;">
+                <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Sprinter_Van_Service.webp"
-                        alt="Philadelphia 14 Passenger Sprinter Van" loading="lazy"
-                        style="width: 100%; height: 180px; object-fit: cover;">
+                        alt="Philadelphia 14 Passenger Sprinter Van" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Ford Transit Van Service Philadelphia</h3>
-                <div class="service-img-wrapper" style="border-radius: 12px; overflow: hidden; margin-top: 1rem;">
+                <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van_Service.webp"
-                        alt="Ford Transit Van Service Philadelphia" loading="lazy"
-                        style="width: 100%; height: 180px; object-fit: cover;">
+                        alt="Ford Transit Van Service Philadelphia" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Corporate Group Van Service</h3>
-                <div class="service-img-wrapper" style="border-radius: 12px; overflow: hidden; margin-top: 1rem;">
+                <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Corporate_Van_Service.webp"
-                        alt="Corporate Group Van Service" loading="lazy"
-                        style="width: 100%; height: 180px; object-fit: cover;">
+                        alt="Corporate Group Van Service" loading="lazy">
                 </div>
             </div>
 
             <div class="service-card">
                 <h3>Spacious Vans For Groups In Philly</h3>
-                <div class="service-img-wrapper" style="border-radius: 12px; overflow: hidden; margin-top: 1rem;">
+                <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Group_Transportation_Service.webp"
-                        alt="Spacious Vans For Groups In Philly" loading="lazy"
-                        style="width: 100%; height: 180px; object-fit: cover;">
+                        alt="Spacious Vans For Groups In Philly" loading="lazy">
                 </div>
             </div>
         </div>
