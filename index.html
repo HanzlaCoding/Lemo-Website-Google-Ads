@@ -571,140 +571,162 @@
             background: linear-gradient(90deg, var(--primary-gold), #b5952f);
         }
 
-        /* ─── MARQUEE TRACK ─── */
-        .reviews-marquee-outer {
+        /* ─── JS REVIEWS SLIDER ─── */
+        .reviews-slider-outer {
             overflow: hidden;
-            margin-top: 2.5rem;
-            /* fade edges */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            margin: 3rem auto 0;
+            max-width: 1180px;
+            /* Increased to account for arrows (1060px + 60px*2) */
+            width: 100%;
+            padding: 10px 60px;
+            /* Space for arrows on left and right */
+            position: relative;
+        }
+
+        .reviews-slider-viewport {
+            overflow: hidden;
+            width: 100%;
         }
 
         .reviews-track {
             display: flex;
-            gap: 1.25rem;
+            gap: 20px;
             width: max-content;
-            animation: marqueeScroll 38s linear infinite;
+            transition: transform 0.5s ease-in-out;
         }
 
-        .reviews-marquee-outer:hover .reviews-track {
-            animation-play-state: paused;
-        }
-
-        @keyframes marqueeScroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
+        /* Nav Arrows */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: #fff;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: var(--primary-gold);
+            z-index: 10;
+            transition: all 0.2s ease;
         }
 
         .review-card {
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.07);
+            background-color: #ffffff;
             border-radius: 12px;
-            padding: 1.25rem;
-            width: 300px;
-            height: 240px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             display: flex;
             flex-direction: column;
-            flex-shrink: 0;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            cursor: default;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            justify-content: space-between;
+            height: 320px;
+            /* FIXED HEIGHT */
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .review-card:hover {
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .review-stars {
             color: var(--primary-gold);
-            font-size: 1rem;
+            font-size: 1.25rem;
             letter-spacing: 2px;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
         }
 
         .review-text {
             color: #475569;
-            font-size: 0.875rem;
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 0.85rem;
             font-style: italic;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            /* TRUNCATE EXCEEDING TEXT WITH DOTS */
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 6;
+            /* Show max 6 lines */
+            line-clamp: 6;
+            /* Standard compatibility */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
-            line-clamp: 4;
-        }
-
-        .review-author {
-            font-weight: 700;
-            font-size: 0.825rem;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .review-card-footer {
             display: flex;
             align-items: center;
-            gap: 0.65rem;
+            gap: 1rem;
             margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 1.25rem;
         }
 
         .review-avatar {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid rgba(212, 175, 55, 0.35);
-            flex-shrink: 0;
+            border: 2px solid rgba(212, 175, 55, 0.2);
         }
 
-        .review-time {
-            font-size: 0.72rem;
-            color: rgba(30, 41, 59, 0.4);
-            margin-top: 0.15rem;
+        .review-author {
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
         }
 
-        .reviews-loader-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 4rem 0;
-            width: 100%;
+
+        .slider-nav:hover {
+            background: var(--primary-gold);
+            color: #fff;
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
         }
 
-        .reviews-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(212, 175, 55, 0.1);
-            border-top: 3px solid var(--primary-gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 1rem;
+        .slider-nav svg {
+            width: 20px;
+            height: 20px;
         }
 
-        .reviews-loader-text {
-            color: #475569;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
+        .slider-nav-prev {
+            left: 5px;
+            /* Positioned within the 60px padding zone */
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        .slider-nav-next {
+            right: 5px;
+        }
+
+        @media (max-width: 1100px) {
+            .reviews-slider-outer {
+                padding: 10px 40px;
             }
 
-            100% {
-                transform: rotate(360deg);
+            .slider-nav-prev {
+                left: -5px;
+            }
+
+            .slider-nav-next {
+                right: -5px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider-nav {
+                display: none;
+                /* Hide arrows on mobile to prefer touch swiping */
+            }
+
+            .reviews-slider-outer {
+                padding: 10px 0;
             }
         }
 
@@ -908,50 +930,123 @@
             <div class="accent-line" style="margin:0.85rem auto 0;"></div>
         </div>
 
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:3rem;">
-            <!-- Review 1 -->
-            <div class="review-card" style="width:340px;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Excellent service to JFK. The owner/driver was on time, professional, and very
-                    helpful with our luggage. The vehicle was clean, comfortable, and perfect for traveling with family.
-                    Smooth, stress-free ride from start to finish. Highly recommend."</p>
-                <div class="review-card-footer">
-                    <img src="https://ui-avatars.com/api/?name=Joseph+Mathew&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                        alt="Joseph Mathew" class="review-avatar">
-                    <div>
-                        <div class="review-author">Joseph Mathew</div>
-                    </div>
-                </div>
-            </div>
+        <div class="reviews-slider-outer">
+            <!-- Navigation Arrows -->
+            <button class="slider-nav slider-nav-prev" id="prevReview" aria-label="Previous Review">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+            </button>
+            <button class="slider-nav slider-nav-next" id="nextReview" aria-label="Next Review">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6" />
+                </svg>
+            </button>
 
-            <!-- Review 2 -->
-            <div class="review-card" style="width:340px;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Worked with Benny and his team for a 4-day client-entertainment event and the
-                    entire experience working with them was excellent. Incredibly professional, timely, clean sprinter
-                    vans, and flexible with any changes that came up last minute. Can't recommend Peters Transit
-                    enough!"</p>
-                <div class="review-card-footer">
-                    <img src="https://ui-avatars.com/api/?name=Matt+Kolarczyk&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                        alt="Matt Kolarczyk" class="review-avatar">
-                    <div>
-                        <div class="review-author">Matt Kolarczyk</div>
+            <div class="reviews-slider-viewport">
+                <div class="reviews-track" id="reviewsTrack">
+                    <!-- Review 1 -->
+                    <div class="review-card" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Excellent service to JFK. The owner/driver was on time, professional,
+                            and
+                            very
+                            helpful with our luggage. The vehicle was clean, comfortable, and perfect for traveling with
+                            family.
+                            Smooth, stress-free ride from start to finish. Highly recommend."</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Joseph+Mathew&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Joseph Mathew" class="review-avatar">
+                            <div>
+                                <div class="review-author">Joseph Mathew</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Review 3 -->
-            <div class="review-card" style="width:340px;">
-                <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
-                <div class="review-card-footer">
-                    <img src="https://ui-avatars.com/api/?name=Rob+Fratamico&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                        alt="Rob Fratamico" class="review-avatar">
-                    <div>
-                        <div class="review-author">Rob Fratamico</div>
+                    <!-- Review 2 -->
+                    <div class="review-card" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Worked with Benny and his team for a 4-day client-entertainment event
+                            and
+                            the
+                            entire experience working with them was excellent. Incredibly professional, timely, clean
+                            sprinter
+                            vans, and flexible with any changes that came up last minute. Can't recommend Peters Transit
+                            enough!"</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Matt+Kolarczyk&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Matt Kolarczyk" class="review-avatar">
+                            <div>
+                                <div class="review-author">Matt Kolarczyk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Rob+Fratamico&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Rob Fratamico" class="review-avatar">
+                            <div>
+                                <div class="review-author">Rob Fratamico</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate reviews for looping logic in JS -->
+                    <div class="review-card clone" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Excellent service to JFK. The owner/driver was on time, professional,
+                            and
+                            very
+                            helpful with our luggage. The vehicle was clean, comfortable, and perfect for traveling with
+                            family.
+                            Smooth, stress-free ride from start to finish. Highly recommend."</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Joseph+Mathew&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Joseph Mathew" class="review-avatar">
+                            <div>
+                                <div class="review-author">Joseph Mathew</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card clone" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Worked with Benny and his team for a 4-day client-entertainment event
+                            and
+                            the
+                            entire experience working with them was excellent. Incredibly professional, timely, clean
+                            sprinter
+                            vans, and flexible with any changes that came up last minute. Can't recommend Peters Transit
+                            enough!"</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Matt+Kolarczyk&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Matt Kolarczyk" class="review-avatar">
+                            <div>
+                                <div class="review-author">Matt Kolarczyk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card clone" style="width:340px;">
+                        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
+                        <div class="review-card-footer">
+                            <img src="https://ui-avatars.com/api/?name=Rob+Fratamico&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
+                                alt="Rob Fratamico" class="review-avatar">
+                            <div>
+                                <div class="review-author">Rob Fratamico</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <div style="text-align:center; margin-top:2.5rem;">
@@ -1269,6 +1364,95 @@
 
     <!-- Main Script -->
     <script defer src="script.js"></script>
+
+    <!-- === Review Slider JS === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const track = document.getElementById('reviewsTrack');
+            const prevBtn = document.getElementById('prevReview');
+            const nextBtn = document.getElementById('nextReview');
+            const sliderOuter = document.querySelector('.reviews-slider-outer');
+
+            if (!track || !prevBtn || !nextBtn || !sliderOuter) return;
+
+            // 340px card + 20px gap
+            const itemWidth = 360;
+            const totalOriginalCards = 3;
+            let currentIndex = 0;
+            let slideInterval;
+
+            function slideTo(index) {
+                // Smooth slide
+                track.style.transition = "transform 0.5s ease-in-out";
+                track.style.transform = `translateX(-${index * itemWidth}px)`;
+                currentIndex = index;
+
+                // Infinite loop jump
+                if (currentIndex >= totalOriginalCards) {
+                    setTimeout(() => {
+                        track.style.transition = "none";
+                        currentIndex = 0;
+                        track.style.transform = `translateX(0px)`;
+                    }, 500); // Wait for transition to finish
+                }
+            }
+
+            function slideNext() {
+                if (currentIndex < totalOriginalCards) {
+                    slideTo(currentIndex + 1);
+                } else {
+                    // Safety snap
+                    track.style.transition = "none";
+                    currentIndex = 0;
+                    track.style.transform = `translateX(0px)`;
+                    setTimeout(() => {
+                        slideTo(currentIndex + 1);
+                    }, 50);
+                }
+            }
+
+            function slidePrev() {
+                if (currentIndex > 0) {
+                    slideTo(currentIndex - 1);
+                } else {
+                    // Jump to end then slide left
+                    track.style.transition = "none";
+                    currentIndex = totalOriginalCards;
+                    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+                    setTimeout(() => {
+                        slideTo(currentIndex - 1);
+                    }, 50);
+                }
+            }
+
+            function startInterval() {
+                slideInterval = setInterval(slideNext, 4000);
+            }
+
+            function stopInterval() {
+                clearInterval(slideInterval);
+            }
+
+            // Event Listeners
+            nextBtn.addEventListener('click', () => {
+                slideNext();
+                stopInterval();
+                startInterval();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                slidePrev();
+                stopInterval();
+                startInterval();
+            });
+
+            sliderOuter.addEventListener('mouseenter', stopInterval);
+            sliderOuter.addEventListener('mouseleave', startInterval);
+
+            // Start auto slide
+            startInterval();
+        });
+    </script>
 </body>
 
 </html>
