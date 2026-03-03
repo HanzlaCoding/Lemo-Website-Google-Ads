@@ -882,6 +882,8 @@
     <noscript>
         <link rel="stylesheet" href="style.css">
     </noscript>
+    <link rel="preload" as="image"
+        href="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp">
 </head>
 
 <body>
@@ -953,28 +955,31 @@
                     <!-- Name & Phone -->
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" id="customerName" name="customerName" placeholder="Full Name" required>
+                            <input type="text" id="customerName" name="customerName" placeholder="Full Name"
+                                aria-label="Full Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                                aria-label="Phone Number" required>
                         </div>
                     </div>
 
                     <!-- Email & Passengers -->
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            <input type="email" id="email" name="email" placeholder="Email Address"
+                                aria-label="Email Address" required>
                         </div>
                         <div class="form-group">
                             <input type="number" id="passengers" name="passengers" placeholder="No. of Passengers"
-                                min="1" max="50" required>
+                                min="1" max="50" required aria-label="Number of Passengers">
                         </div>
                     </div>
 
                     <!-- Vehicle & Service Type -->
                     <div class="form-row">
                         <div class="form-group">
-                            <select id="vehicleType" name="vehicleType" required>
+                            <select id="vehicleType" name="vehicleType" required aria-label="Vehicle Preference">
                                 <option value="" disabled selected>Vehicle Preference</option>
                                 <option value="luxury-sedan">Luxury Sedan</option>
                                 <option value="suv">Luxury SUV</option>
@@ -982,7 +987,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <select id="serviceType" name="serviceType" required>
+                            <select id="serviceType" name="serviceType" required aria-label="Service Type">
                                 <option value="" disabled selected>Service Type</option>
                                 <option value="point-to-point">Point-to-Point</option>
                                 <option value="airport-transfer">Airport Transfer</option>
@@ -995,7 +1000,7 @@
                     <div class="form-group">
                         <div class="autocomplete-wrapper">
                             <input type="text" id="pickupAddress" name="pickupAddress" placeholder="📍 Pickup Location"
-                                required autocomplete="off">
+                                required autocomplete="off" aria-label="Pickup Location">
                             <ul class="suggestions-list" id="pickup-suggestions"></ul>
                         </div>
                     </div>
@@ -1003,7 +1008,8 @@
                     <div class="form-group">
                         <div class="autocomplete-wrapper">
                             <input type="text" id="dropoffAddress" name="dropoffAddress"
-                                placeholder="🏁 Drop-Off Location" required autocomplete="off">
+                                placeholder="🏁 Drop-Off Location" required autocomplete="off"
+                                aria-label="Drop-Off Location">
                             <ul class="suggestions-list" id="dropoff-suggestions"></ul>
                         </div>
                     </div>
@@ -1011,14 +1017,15 @@
                     <!-- Date & Time -->
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="date" id="date" name="date" required>
+                            <input type="date" aria-label="Pickup Date" id="date" name="date" required>
                         </div>
                         <div class="form-group">
-                            <input type="time" id="time" name="time" required>
+                            <input type="time" aria-label="Pickup Time" id="time" name="time" required>
                         </div>
                     </div>
 
-                    <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
+                    <button type="submit" class="submit-btn" id="submitBtn" aria-label="Get Instant Quote">Get My
+                        Instant Quote →</button>
                 </form>
             </div>
         </div>
@@ -1065,7 +1072,7 @@
                             Smooth, stress-free ride from start to finish. Highly recommend."</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Joseph+Mathew&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Joseph Mathew" class="review-avatar">
+                                alt="Joseph Mathew" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Joseph Mathew</div>
                             </div>
@@ -1084,7 +1091,7 @@
                             enough!"</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Matt+Kolarczyk&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Matt Kolarczyk" class="review-avatar">
+                                alt="Matt Kolarczyk" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Matt Kolarczyk</div>
                             </div>
@@ -1097,7 +1104,7 @@
                         <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Rob+Fratamico&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Rob Fratamico" class="review-avatar">
+                                alt="Rob Fratamico" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Rob Fratamico</div>
                             </div>
@@ -1115,7 +1122,7 @@
                             Smooth, stress-free ride from start to finish. Highly recommend."</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Joseph+Mathew&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Joseph Mathew" class="review-avatar">
+                                alt="Joseph Mathew" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Joseph Mathew</div>
                             </div>
@@ -1133,7 +1140,7 @@
                             enough!"</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Matt+Kolarczyk&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Matt Kolarczyk" class="review-avatar">
+                                alt="Matt Kolarczyk" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Matt Kolarczyk</div>
                             </div>
@@ -1145,7 +1152,7 @@
                         <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
                         <div class="review-card-footer">
                             <img src="https://ui-avatars.com/api/?name=Rob+Fratamico&background=2a2a2a&color=d4af37&bold=true&size=48&rounded=true"
-                                alt="Rob Fratamico" class="review-avatar">
+                                alt="Rob Fratamico" class="review-avatar" loading="lazy" width="48" height="48">
                             <div>
                                 <div class="review-author">Rob Fratamico</div>
                             </div>
@@ -1242,14 +1249,15 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
-                        alt="Ford Transit Van" loading="lazy" class="fleet-img">
+                        alt="Ford Transit Van Luxury Vehicle" loading="lazy" width="800" height="450" class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Ford Transit Van</h3>
                     <p>Ideal for efficient group travel. Features comfortable seating for up to 14 passengers with ample
                         luggage space.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1258,14 +1266,16 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
-                        alt="Mercedes Benz Sprinter Van" loading="lazy" class="fleet-img">
+                        alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy" width="800" height="450"
+                        class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Mercedes Benz Sprinter Van</h3>
                     <p>Luxurious and spacious travel for up to 14 passengers. Provides business-class comfort and
                         reliability.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1274,14 +1284,16 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
-                        alt="Mercedes Benz Sprinter Limo" loading="lazy" class="fleet-img">
+                        alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy" width="800" height="450"
+                        class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Mercedes Benz Sprinter Limo</h3>
                     <p>The ultimate entertainment experience for up to 14 passengers. Features premium wrap-around
                         limousine seating.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1290,14 +1302,16 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/MKT_Stretch_Limousine.webp"
-                        alt="MKT Stretch Limousine" loading="lazy" class="fleet-img">
+                        alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450"
+                        class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>MKT Stretch Limousine</h3>
                     <p>Elegant and sophisticated transportation for up to 9 passengers. Perfect for corporate events or
                         small parties.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1306,14 +1320,16 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Continental_Stretch_Limousine.webp"
-                        alt="Continental Stretch Limousine" loading="lazy" class="fleet-img">
+                        alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450"
+                        class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Continental Stretch Limousine</h3>
                     <p>A classic luxury aesthetic accommodating up to 10 passengers. Makes every arrival a grand
                         entrance.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1322,14 +1338,16 @@
             <div class="fleet-card">
                 <div class="fleet-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Chrysler_300_Stretch_limousine.webp"
-                        alt="Chrysler 300 Stretch Limousine" loading="lazy" class="fleet-img">
+                        alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450"
+                        class="fleet-img">
                 </div>
                 <div class="fleet-info">
                     <h3>Chrysler 300 Stretch Limousine</h3>
                     <p>Bold styling and premium features for up to 10 passengers. The modern choice for stylish
                         transportation.</p>
                     <button class="book-btn"
-                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})">Book
+                        onclick="document.getElementById('quoteForm').scrollIntoView({behavior:'smooth'})"
+                        aria-label="Book This Vehicle">Book
                         This</button>
                 </div>
             </div>
@@ -1350,7 +1368,8 @@
                 <h3>Philadelphia 14 Passenger Sprinter Van</h3>
                 <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Sprinter_Van_Service.webp"
-                        alt="Philadelphia 14 Passenger Sprinter Van" loading="lazy">
+                        alt="Philadelphia 14 Passenger Sprinter Van Service Vehicle" loading="lazy" width="800"
+                        height="450">
                 </div>
             </div>
 
@@ -1358,7 +1377,7 @@
                 <h3>Ford Transit Van Service Philadelphia</h3>
                 <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van_Service.webp"
-                        alt="Ford Transit Van Service Philadelphia" loading="lazy">
+                        alt="Ford Transit Van Service Philadelphia Vehicle" loading="lazy" width="800" height="450">
                 </div>
             </div>
 
@@ -1366,7 +1385,7 @@
                 <h3>Corporate Group Van Service</h3>
                 <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Corporate_Van_Service.webp"
-                        alt="Corporate Group Van Service" loading="lazy">
+                        alt="Corporate Group Van Service Vehicle" loading="lazy" width="800" height="450">
                 </div>
             </div>
 
@@ -1374,7 +1393,8 @@
                 <h3>Spacious Vans For Groups In Philly</h3>
                 <div class="service-img-wrapper">
                     <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Group_Transportation_Service.webp"
-                        alt="Spacious Vans For Groups In Philly" loading="lazy">
+                        alt="Spacious Vans For Groups In Philly Service Vehicle" loading="lazy" width="800"
+                        height="450">
                 </div>
             </div>
         </div>
