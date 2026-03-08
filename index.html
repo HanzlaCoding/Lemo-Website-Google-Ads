@@ -24,8 +24,18 @@
 
   <!-- DNS / Preconnect only for critical origins -->
   <link rel="preconnect" href="https://van.peterstransit.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="canonical" href="https://lemo-website-google-ads.vercel.app/">
+
+  <!-- Asynchronous Google Fonts -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap">
+  </noscript>
 
   <!-- Preload hero BG image as high priority fetch -->
   <link rel="preload" as="image"
@@ -64,9 +74,6 @@
 
   <!-- ====== ALL CSS INLINED — zero render-blocking stylesheets ====== -->
   <style>
-    /* Google Fonts loaded inline via @import with display=swap */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
-
     @font-face {
       font-family: "Inter-fallback";
       size-adjust: 104.5%;
