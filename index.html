@@ -22,25 +22,27 @@
   <meta name="twitter:image"
     content="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp">
 
-  <!-- DNS / Preconnect only for critical origins -->
+  <!-- Preload hero image -->
+  <link rel="preload"
+    href="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp" as="image"
+    fetchpriority="high" type="image/webp">
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://van.peterstransit.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="canonical" href="https://lemo-website-google-ads.vercel.app/">
 
-  <!-- Asynchronous Google Fonts -->
+  <!-- Fonts async -->
   <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'">
+
   <noscript>
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap">
   </noscript>
 
-  <!-- Preload hero BG image as high priority fetch -->
-  <link rel="preload" fetchpriority="high" as="image"
-    href="https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp"
-    type="image/webp">
+  <link rel="canonical" href="https://lemo-website-google-ads.vercel.app/">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -237,13 +239,19 @@
       position: relative;
       overflow: hidden;
       background-color: #0a0a0a;
-      /* Passes Lighthouse contrast check for absolute img backgrounds */
+
+      background-image: url("https://van.peterstransit.com/wp-content/uploads/2026/01/Brown_Leather_Interior_Of_A_Limo.webp");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
       min-height: calc(100vh - 80px);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 5% 20px;
-      contain: layout
+
+      contain: layout style paint;
     }
 
     .hero-container {
@@ -795,8 +803,8 @@
       <div class="fleet-grid">
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async" src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
-              alt="Ford Transit Van Luxury Vehicle" loading="lazy" width="800" height="450" class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
+              alt="Ford Transit Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Ford Transit Van</h3>
@@ -808,9 +816,8 @@
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async"
-              src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
-              alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy" width="800" height="450" class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
+              alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Van</h3>
@@ -822,10 +829,8 @@
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async"
-              src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
-              alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy" width="800" height="450"
-              class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
+              alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Limo</h3>
@@ -837,9 +842,8 @@
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async"
-              src="https://van.peterstransit.com/wp-content/uploads/2026/01/MKT_Stretch_Limousine.webp"
-              alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450" class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/MKT_Stretch_Limousine.webp"
+              alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>MKT Stretch Limousine</h3>
@@ -851,10 +855,8 @@
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async"
-              src="https://van.peterstransit.com/wp-content/uploads/2026/01/Continental_Stretch_Limousine.webp"
-              alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450"
-              class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Continental_Stretch_Limousine.webp"
+              alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Continental Stretch Limousine</h3>
@@ -865,10 +867,8 @@
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img decoding="async"
-              src="https://van.peterstransit.com/wp-content/uploads/2026/01/Chrysler_300_Stretch_limousine.webp"
-              alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" width="800" height="450"
-              class="fleet-img">
+            <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Chrysler_300_Stretch_limousine.webp"
+              alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Chrysler 300 Stretch Limousine</h3>
@@ -991,41 +991,43 @@
     <!-- Google Maps: loaded ONLY when a location field is focused (saves ~200KB on page load) -->
     <script>
       (function () {
-        var loaded = false;
+        let loaded = false;
         function loadMaps() {
           if (loaded) return;
           loaded = true;
-          var s = document.createElement('script');
-          s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&callback=initGoogleMaps';
+          let s = document.createElement("script");
+          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&loading=async&callback=initGoogleMaps";
           s.async = true;
           document.head.appendChild(s);
         }
-        // Load Google Maps only when user clicks on a location field
-        var fields = ['pickupAddress', 'dropoffAddress'];
-        fields.forEach(function (id) {
-          var el = document.getElementById(id);
-          if (el) {
-            el.addEventListener('focus', loadMaps, { once: true });
-            el.addEventListener('click', loadMaps, { once: true });
-          }
+        ["pickupAddress", "dropoffAddress"].forEach(id => {
+          let el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener("focus", loadMaps, { once: true });
+          el.addEventListener("click", loadMaps, { once: true });
         });
       })();
 
       window.initGoogleMaps = function () {
-        ['pickupAddress', 'dropoffAddress'].forEach(function (id) {
-          var el = document.getElementById(id);
+        ["pickupAddress", "dropoffAddress"].forEach(id => {
+          let el = document.getElementById(id);
           if (!el) return;
-          new google.maps.places.Autocomplete(el, { types: ['geocode', 'establishment'], fields: ['formatted_address', 'name', 'geometry'] });
-          google.maps.event.addDomListener(el, 'keydown', function (e) { if (e.key === 'Enter') e.preventDefault(); });
+          new google.maps.places.Autocomplete(el, {
+            types: ["geocode", "establishment"],
+            fields: ["formatted_address", "name", "geometry"]
+          });
+          el.addEventListener("keydown", e => {
+            if (e.key === "Enter") e.preventDefault();
+          });
         });
-      };
+      }
     </script>
 
     <!-- Service Worker -->
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('/sw.js').catch(function () { });
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => { });
         });
       }
     </script>
