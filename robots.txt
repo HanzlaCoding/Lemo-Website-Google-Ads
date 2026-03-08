@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lemo-website-google-ads.vercel.app/sitemap.xml
