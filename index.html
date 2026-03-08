@@ -132,11 +132,6 @@
       color: var(--text-main)
     }
 
-    section {
-      content-visibility: auto;
-      contain-intrinsic-size: 1px 1000px;
-    }
-
     /* ---- A11Y GLOBALS ---- */
     .sr-only {
       position: absolute;
@@ -433,36 +428,6 @@
       filter: brightness(1.05)
     }
 
-    /* ---- CONVERSION UX ---- */
-    .trust-mini {
-      margin-top: 12px;
-      font-size: 14px;
-      color: #fff;
-      opacity: .9;
-      text-align: center;
-    }
-
-    .urgency {
-      text-align: center;
-      color: #f3cf55;
-      font-weight: 600;
-      margin-bottom: 8px;
-      font-size: 14px;
-    }
-
-    .whatsapp-btn {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      color: #25D366;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    .mobile-call {
-      display: none;
-    }
-
     /* ---- RESPONSIVE ---- */
     @media(max-width:1024px) {
       .hero-content h1 {
@@ -566,37 +531,11 @@
         gap: .3rem
       }
     }
-
-    @media(max-width:768px) {
-      .mobile-call {
-        display: block;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #d4af37;
-        color: #000;
-        text-align: center;
-        padding: 14px;
-        font-weight: 700;
-        z-index: 9999;
-        text-decoration: none;
-      }
-    }
   </style>
   <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="style.css">
   </noscript>
-
-  <!-- Google Ads Conversion Tracking -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'AW-XXXXXXXXX');
-  </script>
 </head>
 
 <body>
@@ -633,7 +572,7 @@
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
       <div class="hero-container">
         <div class="hero-content">
-          <h1 fetchpriority="high">Premium Limo &amp; Car Service in Detroit – <span>Book in 60 Seconds.</span></h1>
+          <h1>Premium Limo &amp; Car Service in Detroit – <span>Book in 60 Seconds.</span></h1>
           <p class="hero-subtext">Reliable, professional chauffeurs and luxury fleet. Best rates guaranteed for
             corporate and private travel.</p>
           <ul class="hero-benefits">
@@ -663,7 +602,6 @@
 
         <div class="hero-form-card" id="quoteForm">
           <h2 class="form-title">Get Your Instant Quote Now</h2>
-          <p class="urgency">⚡ Limited availability today — Get your quote in 60 seconds</p>
           <form id="bookingForm" class="form-grid" action="https://formsubmit.co/41757e77266e7223e0b126c967d36688"
             method="POST">
             <input type="hidden" name="_subject" value="New Limo Quote Request!">
@@ -673,19 +611,18 @@
               <div class="form-group">
                 <label for="customerName" class="sr-only">Full Name</label>
                 <input type="text" id="customerName" name="customerName" placeholder="Full Name" autocapitalize="words"
-                  required aria-required="true" autocomplete="name">
+                  required aria-required="true">
               </div>
               <div class="form-group">
                 <label for="phone" class="sr-only">Phone Number</label>
                 <input type="tel" id="phone" name="phone" placeholder="Phone Number" inputmode="numeric" required
-                  aria-required="true" autocomplete="tel">
+                  aria-required="true">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="email" class="sr-only">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true"
-                  autocomplete="email">
+                <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true">
               </div>
               <div class="form-group">
                 <label for="passengers" class="sr-only">Number of Passengers</label>
@@ -735,12 +672,6 @@
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
           </form>
-          <div class="trust-mini">
-            ⭐ 5.0 Rating (145 Reviews)<br>
-            ✔ Licensed &amp; Insured<br>
-            ✔ 24/7 Availability
-          </div>
-          <a class="whatsapp-btn" href="https://wa.me/13011954994" target="_blank">Chat on WhatsApp Instead</a>
         </div>
       </div>
     </section>
@@ -873,8 +804,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Ford_Transit_Van-1.webp"
-              alt="Ford Transit Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800"
-              height="450" class="fleet-img">
+              alt="Ford Transit Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Ford Transit Van</h3>
@@ -887,8 +817,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Van_-1.webp"
-              alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+              alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Van</h3>
@@ -901,8 +830,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Mercedes_Sprinter_Limo-1.webp"
-              alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+              alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Limo</h3>
@@ -915,8 +843,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/MKT_Stretch_Limousine.webp"
-              alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800"
-              height="450" class="fleet-img">
+              alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>MKT Stretch Limousine</h3>
@@ -929,8 +856,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Continental_Stretch_Limousine.webp"
-              alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+              alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Continental Stretch Limousine</h3>
@@ -942,8 +868,7 @@
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
             <img src="https://van.peterstransit.com/wp-content/uploads/2026/01/Chrysler_300_Stretch_limousine.webp"
-              alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+              alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Chrysler 300 Stretch Limousine</h3>
@@ -1110,24 +1035,6 @@
     <!-- script.min.js deferred -->
     <script defer src="script.min.js"></script>
 
-    <script>
-      const form = document.getElementById("bookingForm");
-      const btn = document.getElementById("submitBtn");
-
-      form.addEventListener("submit", () => {
-        btn.innerText = "Sending...";
-        btn.disabled = true;
-
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXXXX/FORM_SUBMIT'
-          });
-        }
-      });
-    </script>
-
-    <!-- Mobile call -->
-    <a href="tel:03011954994" class="mobile-call">📞 Call Now</a>
 </body>
 
 </html>
