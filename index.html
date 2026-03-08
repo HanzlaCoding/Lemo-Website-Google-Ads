@@ -24,13 +24,8 @@
 
   <!-- DNS / Preconnect only for critical origins -->
   <link rel="preconnect" href="https://van.peterstransit.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="canonical" href="https://lemo-website-google-ads.vercel.app/">
-
-  <!-- Non-render-blocking font load -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap"></noscript>
 
   <!-- Preload hero BG image as high priority fetch -->
   <link rel="preload" as="image"
@@ -69,6 +64,9 @@
 
   <!-- ====== ALL CSS INLINED — zero render-blocking stylesheets ====== -->
   <style>
+    /* Google Fonts loaded inline via @import with display=swap */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;900&display=swap');
+
     @font-face {
       font-family: "Inter-fallback";
       size-adjust: 104.5%;
@@ -993,7 +991,7 @@
 
   <main id="main-content">
     <!-- HERO -->
-    <section class="hero" id="hero" aria-label="Book a Limo - Hero">
+    <section class="hero" id="hero">
       <div class="hero-container">
         <div class="hero-content">
           <h1>Premium Limo &amp; Car Service in Detroit – <span>Book in 60 Seconds.</span></h1>
@@ -1101,7 +1099,7 @@
     </section>
 
     <!-- REVIEWS -->
-    <section class="reviews-section" id="reviews" aria-label="Customer Reviews">
+    <section class="reviews-section" id="reviews">
       <div class="section-header">
         <h2 style="color:#1e293b;font-size:2.25rem;margin-bottom:.5rem">What Our <span
             style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Clients
@@ -1154,7 +1152,7 @@
       </div>
       <div style="text-align:center;padding-top:2rem">
         <a href="https://www.google.com/maps/place/PETERS+TRANSIT+LLC/@40.1186104,-75.0557295,17z/data=!4m8!3m7!1s0x89c6b33cd195a323:0xbb373d3586157dca!8m2!3d40.1186063!4d-75.0531546!9m1!1b1!16s%2Fg%2F11rb2xx160?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank" rel="noopener noreferrer" class="google-reviews-summary">
+          target="_blank" rel="noopener" class="google-reviews-summary">
           <div class="google-summary-left">
             <div class="google-logo-icon">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1188,7 +1186,7 @@
     </section>
 
     <!-- TRUST BAR -->
-    <section class="trust-bar" aria-label="Trust Indicators">
+    <section class="trust-bar">
       <div class="trust-container">
         <div class="trust-item">
           <span class="trust-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4af37"
@@ -1217,7 +1215,7 @@
     </section>
 
     <!-- FLEET -->
-    <section class="fleet-section" aria-label="Our Vehicle Fleet">
+    <section class="fleet-section">
       <div class="section-header">
         <h2>Our <span
             style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Fleet</span>
@@ -1235,7 +1233,7 @@
             <p>Ideal for efficient group travel. Features comfortable seating for up to 14 passengers with ample luggage
               space.</p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the Ford Transit Van">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
         <div class="fleet-card">
@@ -1249,7 +1247,7 @@
             <p>Luxurious and spacious travel for up to 14 passengers. Provides business-class comfort and reliability.
             </p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the Mercedes Benz Sprinter Van">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
         <div class="fleet-card">
@@ -1264,7 +1262,7 @@
             <p>The ultimate entertainment experience for up to 14 passengers. Features premium wrap-around limousine
               seating.</p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the Mercedes Benz Sprinter Limo">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
         <div class="fleet-card">
@@ -1278,7 +1276,7 @@
             <p>Elegant and sophisticated transportation for up to 9 passengers. Perfect for corporate events or small
               parties.</p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the MKT Stretch Limousine">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
         <div class="fleet-card">
@@ -1292,7 +1290,7 @@
             <h3>Continental Stretch Limousine</h3>
             <p>A classic luxury aesthetic accommodating up to 10 passengers. Makes every arrival a grand entrance.</p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the Continental Stretch Limousine">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
         <div class="fleet-card">
@@ -1307,14 +1305,14 @@
             <p>Bold styling and premium features for up to 10 passengers. The modern choice for stylish transportation.
             </p>
             <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book the Chrysler 300 Stretch Limousine">Book This</button>
+              aria-label="Book This Vehicle">Book This</button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="services-section" aria-label="Our Services">
+    <section class="services-section">
       <div class="section-header">
         <h2 style="color:#1e293b">Our <span
             style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Services</span>
@@ -1358,7 +1356,7 @@
     </section>
 
     <!-- ABOUT -->
-    <section class="about-section" aria-label="About Luxury Limo Detroit">
+    <section class="about-section">
       <div class="section-header">
         <h2>About <span
             style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Luxury
