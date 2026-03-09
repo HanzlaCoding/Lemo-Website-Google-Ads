@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index, follow">
 
+  <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://maps.googleapis.com https://api.emailjs.com;">
+
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:title" content="Premium Limo &amp; Car Service in Detroit – Book in 60 Seconds.">
   <meta property="og:description"
@@ -1414,23 +1417,24 @@
               <div class="form-group">
                 <label for="customerName" class="sr-only">Full Name</label>
                 <input type="text" id="customerName" name="Full_Name" placeholder="Full Name" autocapitalize="words"
-                  required aria-required="true">
+                  required aria-required="true" autocomplete="name">
               </div>
               <div class="form-group">
                 <label for="phone" class="sr-only">Phone Number</label>
                 <input type="tel" id="phone" name="Phone_Number" placeholder="Phone Number" inputmode="numeric" required
-                  aria-required="true">
+                  aria-required="true" autocomplete="tel">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="email" class="sr-only">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true">
+                <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true"
+                  autocomplete="email">
               </div>
               <div class="form-group">
                 <label for="passengers" class="sr-only">Number of Passengers</label>
                 <input type="number" id="passengers" name="Passengers" placeholder="No. of Passengers" min="1" max="50"
-                  required aria-required="true">
+                  required aria-required="true" autocomplete="off">
               </div>
             </div>
             <div class="form-row">
@@ -1466,11 +1470,11 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="date" class="sr-only">Pickup Date</label>
-                <input type="date" id="date" name="Pickup_Date" required aria-required="true">
+                <input type="date" id="date" name="Pickup_Date" required aria-required="true" autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="time" class="sr-only">Pickup Time</label>
-                <input type="time" id="time" name="Pickup_Time" required aria-required="true">
+                <input type="time" id="time" name="Pickup_Time" required aria-required="true" autocomplete="off">
               </div>
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
