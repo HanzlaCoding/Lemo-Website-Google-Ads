@@ -1832,7 +1832,7 @@
         function initAutocomplete() {
           var ids = ["pickupAddress", "dropoffAddress"];
           for (var i = 0; i < ids.length; i++) {
-            (function (id) {
+            (function(id) {
               var el = document.getElementById(id);
               if (!el) return;
               new google.maps.places.Autocomplete(el, {
@@ -1859,7 +1859,7 @@
 
         var fieldIds = ["pickupAddress", "dropoffAddress"];
         for (var i = 0; i < fieldIds.length; i++) {
-          (function (id) {
+          (function(id) {
             var el = document.getElementById(id);
             if (!el) return;
             el.addEventListener("focus", loadMaps, { once: true });
