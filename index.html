@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index, follow">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://maps.googleapis.com https://maps.gstatic.com; frame-src 'none'; object-src 'none';">
 
 
   <!-- OpenGraph & Twitter Cards -->
@@ -1825,36 +1827,46 @@
     <!-- Google Maps: loaded ONLY when a location field is focused (saves ~200KB on page load) -->
     <script>
       (function () {
-        let loaded = false;
+        var loaded = false;
+
+        function initAutocomplete() {
+          var ids = ["pickupAddress", "dropoffAddress"];
+          for (var i = 0; i < ids.length; i++) {
+            (function (id) {
+              var el = document.getElementById(id);
+              if (!el) return;
+              new google.maps.places.Autocomplete(el, {
+                types: ["geocode", "establishment"],
+                fields: ["formatted_address", "name", "geometry"]
+              });
+              el.addEventListener("keydown", function (e) {
+                if (e.key === "Enter") e.preventDefault();
+              });
+            })(ids[i]);
+          }
+        }
+
         function loadMaps() {
           if (loaded) return;
           loaded = true;
-          let s = document.createElement("script");
-          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&loading=async&callback=initGoogleMaps";
+          var s = document.createElement("script");
+          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&loading=async";
           s.async = true;
+          s.defer = true;
+          s.onload = initAutocomplete;
           document.head.appendChild(s);
         }
-        ["pickupAddress", "dropoffAddress"].forEach(id => {
-          let el = document.getElementById(id);
-          if (!el) return;
-          el.addEventListener("focus", loadMaps, { once: true });
-          el.addEventListener("click", loadMaps, { once: true });
-        });
-      })();
 
-      window.initGoogleMaps = function () {
-        ["pickupAddress", "dropoffAddress"].forEach(id => {
-          let el = document.getElementById(id);
-          if (!el) return;
-          new google.maps.places.Autocomplete(el, {
-            types: ["geocode", "establishment"],
-            fields: ["formatted_address", "name", "geometry"]
-          });
-          el.addEventListener("keydown", e => {
-            if (e.key === "Enter") e.preventDefault();
-          });
-        });
-      }
+        var fieldIds = ["pickupAddress", "dropoffAddress"];
+        for (var i = 0; i < fieldIds.length; i++) {
+          (function (id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            el.addEventListener("focus", loadMaps, { once: true });
+            el.addEventListener("click", loadMaps, { once: true });
+          })(fieldIds[i]);
+        }
+      })();
     </script>
 
     <!-- Service Worker -->
