@@ -1,7 +1,7 @@
 self.addEventListener('install', e => {
   e.waitUntil(
     caches.open('limo-v1').then(cache =>
-      cache.addAll(['/', '/styles.min.css'])
+      cache.addAll(['/', '/index.html', '/script.min.js'])
     )
   );
 });

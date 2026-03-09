@@ -1829,32 +1829,64 @@
       (function () {
         var loaded = false;
 
-        function initAutocomplete() {
-          var ids = ["pickupAddress", "dropoffAddress"];
-          for (var i = 0; i < ids.length; i++) {
-            (function (id) {
-              var el = document.getElementById(id);
-              if (!el) return;
-              new google.maps.places.Autocomplete(el, {
-                types: ["geocode", "establishment"],
-                fields: ["formatted_address", "name", "geometry"]
-              });
-              el.addEventListener("keydown", function (e) {
-                if (e.key === "Enter") e.preventDefault();
-              });
-            })(ids[i]);
-          }
+        async function initPlaceAutocomplete(inputEl) {
+          const { PlaceAutocompleteElement } = await google.maps.importLibrary("places");
+          const container = inputEl.parentElement;
+          const placeholder = inputEl.placeholder;
+          const name = inputEl.name;
+          const id = inputEl.id;
+          const required = inputEl.required;
+          const autocomplete = inputEl.getAttribute("autocomplete");
+
+          // Create the new PlaceAutocompleteElement
+          const pac = new PlaceAutocompleteElement({
+            types: ["geocode", "establishment"],
+          });
+
+          // Style it to match existing inputs
+          pac.style.cssText = "width:100%;display:block;";
+          pac.setAttribute("placeholder", placeholder);
+          pac.setAttribute("name", name);
+          pac.setAttribute("id", id);
+          if (required) pac.setAttribute("required", "");
+          if (autocomplete) pac.setAttribute("autocomplete", autocomplete);
+
+          // Listen for place selection and populate a hidden input for form submission
+          pac.addEventListener("gmp-select", async (e) => {
+            const place = e.placePrediction.toPlace();
+            await place.fetchFields({ fields: ["displayName", "formattedAddress"] });
+            // Update a hidden sibling input with the selected address string
+            const hiddenEl = container.querySelector("input[type=hidden]");
+            if (hiddenEl) hiddenEl.value = place.formattedAddress || place.displayName;
+            // Prevent Enter from submitting form
+            pac.addEventListener("keydown", function (ev) {
+              if (ev.key === "Enter") ev.preventDefault();
+            });
+          });
+
+          // Replace the original input with the autocomplete element + hidden input for form data
+          const hidden = document.createElement("input");
+          hidden.type = "hidden";
+          hidden.name = name;
+          hidden.id = id + "_value";
+          container.appendChild(hidden);
+          inputEl.parentElement.replaceChild(pac, inputEl);
         }
 
-        function loadMaps() {
+        async function loadMaps() {
           if (loaded) return;
           loaded = true;
-          var s = document.createElement("script");
-          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&loading=async";
-          s.async = true;
-          s.defer = true;
-          s.onload = initAutocomplete;
-          document.head.appendChild(s);
+          // Use the new loading=async approach
+          const script = document.createElement("script");
+          script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&loading=async&libraries=places";
+          script.async = true;
+          script.onload = function () {
+            ["pickupAddress", "dropoffAddress"].forEach(function (id) {
+              var el = document.getElementById(id);
+              if (el) initPlaceAutocomplete(el);
+            });
+          };
+          document.head.appendChild(script);
         }
 
         var fieldIds = ["pickupAddress", "dropoffAddress"];
