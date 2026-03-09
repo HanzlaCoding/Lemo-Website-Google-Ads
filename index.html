@@ -23,7 +23,9 @@
     content="https://lemo-website-google-ads.vercel.app/assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp">
 
   <!-- Preload hero image -->
-  <link rel="preload" href="./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp" as="image"
+    imagesrcset="./assets/Brown_Leather_Interior_Of_A_Limo_11zon-800w.webp 800w, ./assets/Brown_Leather_Interior_Of_A_Limo_11zon-1400w.webp 1400w, ./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp 1920w"
+    imagesizes="100vw" fetchpriority="high">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,6 +117,7 @@
       overflow-x: hidden;
       width: 100%;
       position: relative;
+      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased
     }
 
@@ -561,8 +564,9 @@
   <main id="main-content">
     <!-- HERO -->
     <section class="hero" id="hero">
-      <img src="./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp" alt="Luxury Limo" fetchpriority="high"
-        loading="eager" decoding="sync"
+      <img src="./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp"
+        srcset="./assets/Brown_Leather_Interior_Of_A_Limo_11zon-800w.webp 800w, ./assets/Brown_Leather_Interior_Of_A_Limo_11zon-1400w.webp 1400w, ./assets/Brown_Leather_Interior_Of_A_Limo_11zon.webp 1920w"
+        sizes="100vw" alt="Luxury Limo" fetchpriority="high" loading="eager" decoding="sync"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
       <div class="hero-container">
         <div class="hero-content">
@@ -797,81 +801,91 @@
       <div class="fleet-grid">
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/Ford_Transit_Van_Service_11zon.webp" srcset="./assets/Ford_Transit_Van_Service_11zon-400w.webp 400w, ./assets/Ford_Transit_Van_Service_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px" alt="Ford Transit Van Luxury Vehicle" loading="lazy"
+            <img src="./assets/Ford_Transit_Van_Service_11zon.webp"
+              srcset="./assets/Ford_Transit_Van_Service_11zon-400w.webp 400w, ./assets/Ford_Transit_Van_Service_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Ford Transit Van Luxury Vehicle" loading="lazy"
               decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Ford Transit Van</h3>
             <p>Ideal for efficient group travel. Features comfortable seating for up to 14 passengers with ample luggage
               space.</p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/Mercedes_Sprinter_Van_-1_11zon.webp" srcset="./assets/Mercedes_Sprinter_Van_-1_11zon-400w.webp 400w, ./assets/Mercedes_Sprinter_Van_-1_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px" alt="Mercedes Benz Sprinter Van Luxury Vehicle"
-              loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
+            <img src="./assets/Mercedes_Sprinter_Van_-1_11zon.webp"
+              srcset="./assets/Mercedes_Sprinter_Van_-1_11zon-400w.webp 400w, ./assets/Mercedes_Sprinter_Van_-1_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Mercedes Benz Sprinter Van Luxury Vehicle" loading="lazy"
+              decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Van</h3>
             <p>Luxurious and spacious travel for up to 14 passengers. Provides business-class comfort and reliability.
             </p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/Mercedes_Sprinter_Limo-1_11zon.webp" srcset="./assets/Mercedes_Sprinter_Limo-1_11zon-400w.webp 400w, ./assets/Mercedes_Sprinter_Limo-1_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px" alt="Mercedes Benz Sprinter Limo Luxury Vehicle"
-              loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
+            <img src="./assets/Mercedes_Sprinter_Limo-1_11zon.webp"
+              srcset="./assets/Mercedes_Sprinter_Limo-1_11zon-400w.webp 400w, ./assets/Mercedes_Sprinter_Limo-1_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Mercedes Benz Sprinter Limo Luxury Vehicle" loading="lazy"
+              decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Mercedes Benz Sprinter Limo</h3>
             <p>The ultimate entertainment experience for up to 14 passengers. Features premium wrap-around limousine
               seating.</p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/MKT_Stretch_Limousine_11zon.webp" srcset="./assets/MKT_Stretch_Limousine_11zon-400w.webp 400w, ./assets/MKT_Stretch_Limousine_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px" alt="MKT Stretch Limousine Luxury Vehicle"
-              loading="lazy" decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
+            <img src="./assets/MKT_Stretch_Limousine_11zon.webp"
+              srcset="./assets/MKT_Stretch_Limousine_11zon-400w.webp 400w, ./assets/MKT_Stretch_Limousine_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="MKT Stretch Limousine Luxury Vehicle" loading="lazy"
+              decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>MKT Stretch Limousine</h3>
             <p>Elegant and sophisticated transportation for up to 9 passengers. Perfect for corporate events or small
               parties.</p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/Continental_Stretch_Limousine_11zon.webp" srcset="./assets/Continental_Stretch_Limousine_11zon-400w.webp 400w, ./assets/Continental_Stretch_Limousine_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+            <img src="./assets/Continental_Stretch_Limousine_11zon.webp"
+              srcset="./assets/Continental_Stretch_Limousine_11zon-400w.webp 400w, ./assets/Continental_Stretch_Limousine_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Continental Stretch Limousine Luxury Vehicle" loading="lazy"
+              decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Continental Stretch Limousine</h3>
             <p>A classic luxury aesthetic accommodating up to 10 passengers. Makes every arrival a grand entrance.</p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
         <div class="fleet-card">
           <div class="fleet-img-wrapper">
-            <img src="./assets/Chrysler_300_Stretch_limousine_11zon.webp" srcset="./assets/Chrysler_300_Stretch_limousine_11zon-400w.webp 400w, ./assets/Chrysler_300_Stretch_limousine_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy" decoding="async" fetchpriority="low"
-              width="800" height="450" class="fleet-img">
+            <img src="./assets/Chrysler_300_Stretch_limousine_11zon.webp"
+              srcset="./assets/Chrysler_300_Stretch_limousine_11zon-400w.webp 400w, ./assets/Chrysler_300_Stretch_limousine_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Chrysler 300 Stretch Limousine Luxury Vehicle" loading="lazy"
+              decoding="async" fetchpriority="low" width="800" height="450" class="fleet-img">
           </div>
           <div class="fleet-info">
             <h3>Chrysler 300 Stretch Limousine</h3>
             <p>Bold styling and premium features for up to 10 passengers. The modern choice for stylish transportation.
             </p>
-            <button class="book-btn" onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth"})'
-              aria-label="Book This Vehicle">Book This</button>
+            <a href="#quoteForm" class="book-btn" aria-label="Book This Vehicle"
+              style="display:inline-block;text-align:center;text-decoration:none">Book This</a>
           </div>
         </div>
       </div>
@@ -889,29 +903,37 @@
         <div class="service-card">
           <h3>Detroit 14 Passenger Sprinter Van</h3>
           <div class="service-img-wrapper">
-            <img decoding="async" src="./assets/Sprinter_Van_Service_11zon.webp" srcset="./assets/Sprinter_Van_Service_11zon-400w.webp 400w, ./assets/Sprinter_Van_Service_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Detroit 14 Passenger Sprinter Van Service Vehicle" loading="lazy" width="800" height="450">
+            <img decoding="async" src="./assets/Sprinter_Van_Service_11zon.webp"
+              srcset="./assets/Sprinter_Van_Service_11zon-400w.webp 400w, ./assets/Sprinter_Van_Service_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Detroit 14 Passenger Sprinter Van Service Vehicle"
+              loading="lazy" width="800" height="450">
           </div>
         </div>
         <div class="service-card">
           <h3>Ford Transit Van Service Detroit</h3>
           <div class="service-img-wrapper">
-            <img decoding="async" src="./assets/Ford_Transit_Van_Service_11zon.webp" srcset="./assets/Ford_Transit_Van_Service_11zon-400w.webp 400w, ./assets/Ford_Transit_Van_Service_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Ford Transit Van Service Detroit Vehicle" loading="lazy" width="800" height="450">
+            <img decoding="async" src="./assets/Ford_Transit_Van_Service_11zon.webp"
+              srcset="./assets/Ford_Transit_Van_Service_11zon-400w.webp 400w, ./assets/Ford_Transit_Van_Service_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Ford Transit Van Service Detroit Vehicle" loading="lazy"
+              width="800" height="450">
           </div>
         </div>
         <div class="service-card">
           <h3>Corporate Group Van Service</h3>
           <div class="service-img-wrapper">
-            <img decoding="async" src="./assets/Corporate_Van_Service_11zon.webp" srcset="./assets/Corporate_Van_Service_11zon-400w.webp 400w, ./assets/Corporate_Van_Service_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Corporate Group Van Service Vehicle" loading="lazy" width="800" height="450">
+            <img decoding="async" src="./assets/Corporate_Van_Service_11zon.webp"
+              srcset="./assets/Corporate_Van_Service_11zon-400w.webp 400w, ./assets/Corporate_Van_Service_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Corporate Group Van Service Vehicle" loading="lazy"
+              width="800" height="450">
           </div>
         </div>
         <div class="service-card">
           <h3>Spacious Vans For Groups In Detroit</h3>
           <div class="service-img-wrapper">
-            <img decoding="async" src="./assets/Group_Transportation_Service_11zon.webp" srcset="./assets/Group_Transportation_Service_11zon-400w.webp 400w, ./assets/Group_Transportation_Service_11zon.webp 800w" sizes="(max-width: 768px) 100vw, 400px"
-              alt="Spacious Vans For Groups In Detroit Service Vehicle" loading="lazy" width="800" height="450">
+            <img decoding="async" src="./assets/Group_Transportation_Service_11zon.webp"
+              srcset="./assets/Group_Transportation_Service_11zon-400w.webp 400w, ./assets/Group_Transportation_Service_11zon.webp 800w"
+              sizes="(max-width: 768px) 100vw, 400px" alt="Spacious Vans For Groups In Detroit Service Vehicle"
+              loading="lazy" width="800" height="450">
           </div>
         </div>
       </div>
@@ -969,16 +991,13 @@
       </div>
     </footer>
 
-    <!-- FLOATING CTA -->
-    <button class="floating-cta"
-      onclick='document.getElementById("quoteForm").scrollIntoView({behavior:"smooth", block:"center"}); document.getElementById("customerName").focus();'
-      aria-label="Scroll to Get Quote Form">
+    <a href="#quoteForm" class="floating-cta" aria-label="Scroll to Get Quote Form" style="text-decoration:none">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <path d="M12 5v14M5 12l7-7 7 7" />
       </svg>
       Get a Quote
-    </button>
+    </a>
 
     <!-- Google Maps: loaded ONLY when a location field is focused (saves ~200KB on page load) -->
     <script>
