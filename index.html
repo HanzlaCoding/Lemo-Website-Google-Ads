@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com https://maps.google.com https://fonts.gstatic.com https://fonts.googleapis.com https://places.googleapis.com; worker-src 'self' blob:; frame-src 'none'; object-src 'none';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.emailjs.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.emailjs.com;">
 
 
   <!-- OpenGraph & Twitter Cards -->
@@ -1479,22 +1479,7 @@
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
           </form>
-          <div id="success-message"
-            style="display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; height: 100%; padding: 2rem;">
-            <h3
-              style="font-family: 'Playfair Display', serif; color: var(--primary-gold); font-size: 1.8rem; margin-bottom: 1rem;">
-              Thanks For Choosing<br>Luxury Limo Detroit</h3>
-            <svg style="width: 60px; height: 60px; margin-bottom: 1.5rem; color: #fff;" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-              </path>
-            </svg>
-            <p style="color: #ccc; margin-bottom: 2rem; font-size: 0.95rem;">We have received your booking and a member
-              of our team will be in touch with you shortly.</p>
-            <button type="button" id="reset-form-btn" class="cta-button"
-              style="width: 100%; justify-content: center;">Make Another Reservation</button>
-          </div>
+
         </div>
       </div>
     </section>

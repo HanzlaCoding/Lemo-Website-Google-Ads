@@ -1,4 +1,4 @@
-const CACHE_NAME = 'limo-v5';
+const CACHE_NAME = 'limo-v6';
 
 self.addEventListener('install', e => {
   e.waitUntil(
