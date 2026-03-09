@@ -1,4 +1,4 @@
-const CACHE_NAME = 'limo-v4';
+const CACHE_NAME = 'limo-v5';
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -25,6 +25,11 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  // Bypass caching for cross-origin Google Maps API requests
+  if (e.request.url.includes('maps.googleapis.com')) {
+    return;
+  }
+
   e.respondWith(
     caches.match(e.request).then(r => r || fetch(e.request))
   );
