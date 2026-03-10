@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com https://maps.google.com https://fonts.gstatic.com https://fonts.googleapis.com https://places.googleapis.com; worker-src 'self' blob:; frame-src https://www.google.com 'self'; object-src 'none';">
-
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com https://maps.google.com https://fonts.gstatic.com https://fonts.googleapis.com https://places.googleapis.com; worker-src 'self' blob:; frame-src https://www.google.com 'self'; object-src 'none';">
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:title" content="Premium Limo &amp; Car Service in Detroit – Book in 60 Seconds.">
@@ -1446,32 +1445,30 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="customerName" class="sr-only">Full Name</label>
-                <input type="text" id="customerName" name="Full_Name" placeholder="Full Name" autocapitalize="words"
-                  required aria-required="true" autocomplete="name">
+                <input id="customerName" name="customerName" type="text" autocomplete="name" placeholder="Full Name"
+                  required>
               </div>
               <div class="form-group">
                 <label for="phone" class="sr-only">Phone Number</label>
-                <input type="tel" id="phone" name="Phone_Number" placeholder="Phone Number" inputmode="numeric" required
-                  aria-required="true" autocomplete="tel">
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Phone Number" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="email" class="sr-only">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Email Address" required aria-required="true"
-                  autocomplete="email">
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="Email Address" required>
               </div>
               <div class="form-group">
                 <label for="passengers" class="sr-only">Number of Passengers</label>
-                <input type="number" id="passengers" name="Passengers" placeholder="No. of Passengers" min="1" max="50"
-                  required aria-required="true" autocomplete="off">
+                <input id="passengers" name="passengers" type="number" min="1" max="10" autocomplete="off"
+                  placeholder="No. of Passengers" required>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="vehicleType" class="sr-only">Vehicle Preference</label>
-                <select id="vehicleType" name="Vehicle_Type" required aria-required="true" autocomplete="off">
-                  <option value="" disabled selected>Vehicle Preference</option>
+                <select id="vehicleType" name="vehicleType" required aria-required="true" autocomplete="off">
+                  <option id="vehicleType-placeholder" name="vehicleType" value="" disabled selected>Vehicle Preference</option>
                   <option value="luxury-sedan">Luxury Sedan</option>
                   <option value="suv">Luxury SUV</option>
                   <option value="sprinter">Sprinter Limo</option>
@@ -1479,8 +1476,8 @@
               </div>
               <div class="form-group">
                 <label for="serviceType" class="sr-only">Service Type</label>
-                <select id="serviceType" name="Service_Type" required aria-required="true" autocomplete="off">
-                  <option value="" disabled selected>Service Type</option>
+                <select id="serviceType" name="serviceType" required aria-required="true" autocomplete="off">
+                  <option id="serviceType-placeholder" name="serviceType" value="" disabled selected>Service Type</option>
                   <option value="point-to-point">Point-to-Point</option>
                   <option value="airport-transfer">Airport Transfer</option>
                   <option value="hourly">Hourly Charter</option>
@@ -1489,25 +1486,25 @@
             </div>
             <div class="form-group">
               <label for="pickupAddress" class="sr-only">Pickup Location</label>
-              <input type="text" id="pickupAddress" name="Pickup_Location" placeholder="📍 Pickup Location" required
-                aria-required="true" autocomplete="off">
+              <input id="pickupAddress" name="pickupAddress" type="text" autocomplete="street-address"
+                placeholder="📍 Pickup Location" required>
             </div>
             <div class="form-group">
               <label for="dropoffAddress" class="sr-only">Drop-Off Location</label>
-              <input type="text" id="dropoffAddress" name="Drop_Off_Location" placeholder="🏁 Drop-Off Location"
-                required aria-required="true" autocomplete="off">
+              <input type="text" id="dropoffAddress" name="dropoffAddress" placeholder="🏁 Drop-Off Location" required
+                aria-required="true" autocomplete="street-address">
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="date" class="sr-only">Pickup Date</label>
-                <input type="date" id="date" name="Pickup_Date" required aria-required="true" autocomplete="off">
+                <input type="date" id="date" name="date" required aria-required="true" autocomplete="off">
               </div>
               <div class="form-group">
                 <label for="time" class="sr-only">Pickup Time</label>
-                <input type="time" id="time" name="Pickup_Time" required aria-required="true" autocomplete="off">
+                <input type="time" id="time" name="time" required aria-required="true" autocomplete="off">
               </div>
             </div>
-            <button type="submit" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
+            <button type="submit" name="submit_quote" class="submit-btn" id="submitBtn">Get My Instant Quote →</button>
           </form>
 
         </div>
@@ -1849,38 +1846,15 @@
             var inputEl = document.getElementById(id);
             if (!inputEl) return;
 
-            var container = inputEl.parentElement;
-            var placeholder = inputEl.placeholder;
-            var name = inputEl.name;
-            var required = inputEl.required;
-
-            // Use the new PlaceAutocompleteElement (no importLibrary needed — library loaded via URL)
-            var pac = new google.maps.places.PlaceAutocompleteElement({
+            // Use the classic Autocomplete which attaches to the existing input instead of replacing it
+            var autocomplete = new google.maps.places.Autocomplete(inputEl, {
               types: ["geocode", "establishment"]
             });
 
-            pac.setAttribute("placeholder", placeholder);
-            pac.setAttribute("autocomplete", "off");
-            if (required) pac.setAttribute("required", "");
-
-            // Hidden input to store selected value for form submission
-            var hidden = document.createElement("input");
-            hidden.type = "hidden";
-            hidden.name = name;
-            container.appendChild(hidden);
-
-            pac.addEventListener("gmp-select", function (e) {
-              var place = e.placePrediction.toPlace();
-              place.fetchFields({ fields: ["displayName", "formattedAddress"] }).then(function () {
-                hidden.value = place.formattedAddress || place.displayName || "";
-              });
-            });
-
-            pac.addEventListener("keydown", function (e) {
+            // Prevent Enter from submitting the form when picking a place
+            inputEl.addEventListener("keydown", function (e) {
               if (e.key === "Enter") e.preventDefault();
             });
-
-            container.replaceChild(pac, inputEl);
           });
         };
 
