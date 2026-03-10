@@ -32,7 +32,7 @@ self.addEventListener('fetch', e => {
   if (!e.request.url.startsWith('http')) return;
 
   // 3. Bypass third-party APIs
-  if (e.request.url.includes('openstreetmap.org') || e.request.url.includes('api.emailjs.com')) return;
+  if (e.request.url.includes('maps.googleapis.com') || e.request.url.includes('api.emailjs.com')) return;
 
   // 4. Bypass LiveServer internal requests
   if (e.request.url.includes('/ws')) return;

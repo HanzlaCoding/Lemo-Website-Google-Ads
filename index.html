@@ -6,7 +6,36 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="index, follow">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.emailjs.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://fonts.gstatic.com https://fonts.googleapis.com https://nominatim.openstreetmap.org; worker-src 'self' blob:; frame-src 'self'; object-src 'none';">
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https: blob:; connect-src 'self' https://api.emailjs.com https://maps.googleapis.com https://maps.gstatic.com https://maps.google.com https://fonts.gstatic.com https://fonts.googleapis.com https://places.googleapis.com; worker-src 'self' blob:; frame-src https://www.google.com 'self'; object-src 'none';">
+
+  <!-- Suppress Google Maps csp_test Errors -->
+  <script>
+    const originalFetch = window.fetch;
+    window.fetch = function () {
+      if (arguments[0] && typeof arguments[0] === 'string' && arguments[0].includes('csp_test=true')) {
+        return Promise.resolve(new Response(null, { status: 204 }));
+      }
+      return originalFetch.apply(this, arguments);
+    };
+    const originalOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (typeof url === 'string' && url.includes('csp_test=true')) {
+        this.isCspTest = true;
+      }
+      return originalOpen.apply(this, arguments);
+    };
+    const originalSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.send = function () {
+      if (this.isCspTest) {
+        Object.defineProperty(this, 'status', { value: 204 });
+        Object.defineProperty(this, 'readyState', { value: 4 });
+        if (this.onreadystatechange) this.onreadystatechange();
+        if (this.onload) this.onload();
+        return;
+      }
+      return originalSend.apply(this, arguments);
+    };
+  </script>
 
   <!-- OpenGraph & Twitter Cards -->
   <meta property="og:title" content="Premium Limo &amp; Car Service in Detroit – Book in 60 Seconds.">
@@ -1811,89 +1840,42 @@
       Get a Quote
     </a>
 
-    <!-- OpenStreetMap Nominatim: Used for maps testing purposes -->
+    <!-- Google Maps: loaded ONLY when a location field is focused (saves ~200KB on page load) -->
     <script>
       (function () {
-        var timeout = null;
-        function setupOsmAutocomplete(id) {
-          var input = document.getElementById(id);
-          if (!input) return;
+        var loaded = false;
 
-          var wrapper = document.createElement("div");
-          wrapper.style.position = "relative";
-          input.parentNode.insertBefore(wrapper, input);
-          wrapper.appendChild(input);
+        window.initGoogleMaps = function () {
+          ["pickupAddress", "dropoffAddress"].forEach(function (id) {
+            var inputEl = document.getElementById(id);
+            if (!inputEl) return;
 
-          var list = document.createElement("ul");
-          list.style.position = "absolute";
-          list.style.top = "100%";
-          list.style.left = "0";
-          list.style.right = "0";
-          list.style.backgroundColor = "#fff";
-          list.style.color = "#000";
-          list.style.listStyle = "none";
-          list.style.margin = "0";
-          list.style.padding = "0";
-          list.style.border = "1px solid #ccc";
-          list.style.borderRadius = "4px";
-          list.style.maxHeight = "200px";
-          list.style.overflowY = "auto";
-          list.style.zIndex = "9999";
-          list.style.display = "none";
-          list.style.textAlign = "left";
-          wrapper.appendChild(list);
+            // Use the classic Autocomplete which attaches to the existing input instead of replacing it
+            var autocomplete = new google.maps.places.Autocomplete(inputEl, {
+              types: ["geocode", "establishment"]
+            });
 
-          input.addEventListener("input", function () {
-            var val = this.value;
-            list.innerHTML = "";
-            if (!val || val.length < 3) {
-              list.style.display = "none";
-              return;
-            }
-            clearTimeout(timeout);
-            timeout = setTimeout(function () {
-              fetch("https://nominatim.openstreetmap.org/search?format=json&countrycodes=us&addressdetails=1&q=" + encodeURIComponent(val))
-                .then(r => r.json())
-                .then(data => {
-                  list.innerHTML = "";
-                  if (data && data.length > 0) {
-                    data.forEach(function (item) {
-                      var li = document.createElement("li");
-                      li.style.padding = "8px";
-                      li.style.cursor = "pointer";
-                      li.style.borderBottom = "1px solid #eee";
-                      li.style.fontSize = "0.85rem";
-                      li.textContent = item.display_name;
-                      li.addEventListener("click", function () {
-                        input.value = item.display_name;
-                        list.style.display = "none";
-                      });
-                      list.appendChild(li);
-                    });
-                    list.style.display = "block";
-                  } else {
-                    list.style.display = "none";
-                  }
-                })
-                .catch(function (e) { list.style.display = "none"; });
-            }, 800);
+            // Prevent Enter from submitting the form when picking a place
+            inputEl.addEventListener("keydown", function (e) {
+              if (e.key === "Enter") e.preventDefault();
+            });
           });
+        };
 
-          // Prevent form submit on Enter if interacting with input
-          input.addEventListener("keydown", function (e) {
-            if (e.key === "Enter") {
-              e.preventDefault();
-            }
-          });
-
-          document.addEventListener("click", function (e) {
-            if (e.target !== input && e.target !== list) list.style.display = "none";
-          });
+        function loadMaps() {
+          if (loaded) return;
+          loaded = true;
+          var s = document.createElement("script");
+          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&callback=initGoogleMaps&loading=async";
+          s.async = true;
+          document.head.appendChild(s);
         }
 
-        window.addEventListener("DOMContentLoaded", function () {
-          setupOsmAutocomplete("pickupAddress");
-          setupOsmAutocomplete("dropoffAddress");
+        ["pickupAddress", "dropoffAddress"].forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          el.addEventListener("focus", loadMaps, { once: true });
+          el.addEventListener("click", loadMaps, { once: true });
         });
       })();
     </script>
