@@ -63,9 +63,9 @@ Updates are forced by incrementing the `CACHE_NAME` in `sw.js`. Current version:
 Developed by **Hanzla Coding**.
 
 - **GitHub**: [@HanzlaCoding](https://github.com/HanzlaCoding)
-- **Email**: [hanzla.coding@gmail.com](mailto:hanzla.coding@gmail.com)
-- **Portfolio**: [hanzlacoding.github.io](https://hanzlacoding.github.io)
-- **Phone**: [+92 301-1954994](tel:03011954994)
+- **Email**: [decodingcodingofficial@gmail.com](mailto:[EMAIL_ADDRESS])
+<!-- - **Portfolio**: [hanzlacoding.github.io](https://hanzlacoding.github.io) -->
+- **Phone**: [+92 324-4054532](tel:+923244054532)
 
 ---
 
