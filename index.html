@@ -942,13 +942,14 @@
     /* ---- REVIEWS CAROUSEL ---- */
     .reviews-carousel-wrap {
       position: relative;
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
+      overflow: visible;
     }
 
     .reviews-grid {
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 12px;
     }
 
     .reviews-track {
@@ -959,7 +960,7 @@
 
     .review-slide {
       min-width: 33.333%;
-      padding: 0 .6rem;
+      padding: 0 .85rem;
       box-sizing: border-box;
     }
 
@@ -969,21 +970,64 @@
 
     .review-card {
       background: #fff;
-      border-radius: 16px;
-      padding: 2rem 2.25rem;
-      box-shadow: 0 6px 30px rgba(0, 0, 0, .1);
-      border: 1px solid rgba(212, 175, 55, .18);
+      border-radius: 12px;
+      padding: 1.6rem 1.75rem 1.4rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border: 1px solid #e2e8f0;
       position: relative;
       animation: fadeInUp .4s ease both;
       text-align: left;
       display: flex;
       flex-direction: column;
       height: 100%;
+      min-height: 260px;
     }
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Reviews section row */
+    .reviews-row {
+      display: flex;
+      gap: 1.25rem;
+      align-items: stretch;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .reviews-profile-card {
+      flex-shrink: 0;
+      width: 210px;
+      min-height: 260px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: .7rem;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .reviews-row {
+        flex-direction: column;
+        padding: 0 .5rem;
+      }
+      .reviews-profile-card {
+        width: 100%;
+        min-height: unset;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .6rem;
+      }
     }
 
     /* Prev / Next arrow buttons */
@@ -992,17 +1036,17 @@
       top: 50%;
       transform: translateY(-50%);
       background: #fff;
-      border: 1px solid rgba(212,175,55,.35);
+      border: 1px solid rgba(212,175,55,.3);
       border-radius: 50%;
-      width: 42px;
-      height: 42px;
+      width: 32px;
+      height: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 3px 12px rgba(0,0,0,.12);
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
       transition: background .2s, box-shadow .2s, transform .2s;
-      z-index: 2;
+      z-index: 3;
       color: #1e293b;
     }
 
@@ -1013,12 +1057,12 @@
       transform: translateY(-50%) scale(1.08);
     }
 
-    .carousel-btn.prev { left: -54px; }
-    .carousel-btn.next { right: -54px; }
+    .carousel-btn.prev { left: 0; }
+    .carousel-btn.next { right: 0; }
 
     @media(max-width:900px) {
-      .carousel-btn.prev { left: -20px; }
-      .carousel-btn.next { right: -20px; }
+      .carousel-btn.prev { left: 0; }
+      .carousel-btn.next { right: 0; }
     }
 
     @media(max-width:600px) {
@@ -1112,29 +1156,30 @@
     }
 
     .review-quote-icon {
-      font-size: 4rem;
+      font-size: 3rem;
       line-height: 1;
-      color: rgba(212, 175, 55, .15);
+      color: #e2e8f0;
       font-family: Georgia, serif;
       position: absolute;
-      top: .5rem;
-      left: 1rem
+      top: .6rem;
+      right: 1.1rem;
     }
 
     .review-stars {
-      color: var(--primary-gold);
-      font-size: 1.1rem;
-      margin-bottom: .75rem
+      color: #f59e0b;
+      font-size: 1rem;
+      letter-spacing: .05em;
+      margin-bottom: .65rem;
     }
 
     .review-text {
-      color: var(--text-secondary);
-      font-size: .9rem;
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-      flex: 1;               /* pushes footer to bottom */
+      color: #475569;
+      font-size: .875rem;
+      line-height: 1.65;
+      margin-bottom: 1.1rem;
+      flex: 1;
       display: -webkit-box;
-      -webkit-line-clamp: 5; /* max 5 lines */
+      -webkit-line-clamp: 5;
       line-clamp: 5;
       -webkit-box-orient: vertical;
       overflow: hidden;
@@ -1144,17 +1189,25 @@
     .review-card-footer {
       display: flex;
       align-items: center;
-      gap: .75rem
-    }
-
-    .avatar {
-      flex-shrink: 0
+      justify-content: space-between;
+      gap: .75rem;
+      padding-top: .9rem;
+      border-top: 1px solid #f1f5f9;
     }
 
     .review-author {
-      font-weight: 600;
-      color: var(--text-main);
-      font-size: .9rem
+      font-weight: 700;
+      color: #1e293b;
+      font-size: .88rem;
+    }
+
+    .review-posted-on {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .72rem;
+      color: #94a3b8;
+      font-weight: 500;
     }
 
     .google-reviews-summary {
@@ -1689,97 +1742,115 @@
     <!-- REVIEWS -->
     <section class="reviews-section" id="reviews">
       <div class="section-header">
-        <h2 style="color:#1e293b;font-size:2.25rem;margin-bottom:.5rem">Real Stories from <span
-            style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Our
-            Clients</span></h2>
-        <p style="color:#333;font-size:.9rem;margin-top:.25rem">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp; Verified
-          5-Star Google Reviews</p>
+        <h2 style="color:#1e293b;font-size:2rem;font-family:Georgia,'Times New Roman',serif;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.6rem">Real Stories from Our Clients</h2>
         <div class="accent-line"></div>
       </div>
-      <!-- Reviews carousel: track injected by reviews.js — skeletons shown while loading -->
-      <div class="reviews-carousel-wrap">
-        <!-- Prev button -->
-        <button class="carousel-btn prev" id="reviewPrev" aria-label="Previous review">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
 
-        <!-- Carousel viewport -->
-        <div class="reviews-grid" id="live-reviews-container">
-          <!-- Skeleton placeholder track (replaced by renderReviews) -->
-          <div class="reviews-track" id="reviews-track">
-            <div class="review-slide"><div class="review-skeleton">
-              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
-              <div style="display:flex;align-items:center;margin-top:1.25rem">
-                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
-                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
-              </div>
-            </div></div>
-            <div class="review-slide"><div class="review-skeleton">
-              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
-              <div style="display:flex;align-items:center;margin-top:1.25rem">
-                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
-                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
-              </div>
-            </div></div>
-            <div class="review-slide"><div class="review-skeleton">
-              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
-              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
-              <div style="display:flex;align-items:center;margin-top:1.25rem">
-                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
-                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
-              </div>
-            </div></div>
-          </div>
-        </div>
+      <!-- Single row: business card + carousel -->
+      <div class="reviews-row">
 
-        <!-- Next button -->
-        <button class="carousel-btn next" id="reviewNext" aria-label="Next review">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-      </div>
+        <!-- ① Fixed Google Business Card -->
+        <div class="reviews-profile-card">
 
-      <!-- Dot indicators (injected by reviews.js) -->
-      <div class="carousel-dots" id="carousel-dots"></div>
-
-      <div style="text-align:center;padding-top:2rem">
-        <a href="https://maps.app.goo.gl/5owK6d7cU1WdWJQ5A"
-          target="_blank" rel="noopener" class="google-reviews-summary" id="google-reviews-summary-link">
-          <div class="google-summary-left">
-            <div class="google-logo-icon">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path
-                  d="M22.564 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                  fill="#4285F4" />
-                <path
-                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                  fill="#34A853" />
-                <path
-                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                  fill="#FBBC05" />
-                <path
-                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                  fill="#EA4335" />
+          <!-- Header with logo and name in row -->
+          <div style="display:flex; align-items:center; justify-content:center; gap:0.8rem; text-align:left; width:100%; margin-bottom:0.2rem">
+            <!-- Google G logo as avatar -->
+            <div style="width:54px;height:54px;border-radius:50%;background:#fff;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.1);flex-shrink:0">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M22.564 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
             </div>
-            <div class="google-summary-stats">
-              <div class="google-summary-rating"><span id="live-rating">5.0</span> <span
-                  class="google-summary-stars" id="live-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-              <div class="google-summary-text">Based on <strong id="live-review-count">145</strong> Excellent Reviews</div>
+
+            <div>
+              <div style="font-weight:700;font-size:.95rem;color:#1e293b;line-height:1.2">Rush Hour Limo</div>
+              <div style="font-size:.72rem;color:#64748b;margin-top:.1rem">Marietta, GA</div>
             </div>
           </div>
-          <div class="google-summary-arrow">View All <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
-              aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg></div>
-        </a>
+
+          <!-- Stars -->
+          <div style="color:#f59e0b;font-size:1.05rem;letter-spacing:.05em">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+
+          <!-- Rating + count -->
+          <div>
+            <div style="font-size:1.6rem;font-weight:800;color:#1e293b;line-height:1" id="live-rating">5.0</div>
+            <div style="font-size:.78rem;color:#64748b;margin-top:.2rem">Based on <strong id="live-review-count">102</strong> reviews</div>
+          </div>
+
+          <!-- Google logo -->
+          <div style="display:flex;align-items:center;gap:.35rem">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M22.564 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            <span style="font-size:.72rem;color:#64748b;font-weight:500">Google Reviews</span>
+          </div>
+
+          <!-- View All button -->
+          <a href="https://maps.app.goo.gl/5owK6d7cU1WdWJQ5A" target="_blank" rel="noopener"
+            style="display:inline-flex;align-items:center;justify-content:center;gap:.4rem;width:100%;background:linear-gradient(135deg,#1e293b,#2d3748);color:#d4af37;font-weight:700;font-size:.8rem;padding:.6rem .75rem;border-radius:8px;text-decoration:none;letter-spacing:.03em;transition:opacity .2s"
+            onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            View All Reviews
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+
+        </div>
+
+        <!-- ② Carousel column -->
+        <div style="flex:1;min-width:0">
+          <div class="reviews-carousel-wrap" style="padding:0 24px">
+            <button class="carousel-btn prev" id="reviewPrev" aria-label="Previous review">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <div class="reviews-grid" id="live-reviews-container">
+              <div class="reviews-track" id="reviews-track">
+                <div class="review-slide"><div class="review-skeleton">
+                  <div class="skeleton-line short" style="height:12px;margin-bottom:1rem"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+                  <div style="display:flex;align-items:center;margin-top:1.25rem">
+                    <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                    <div style="flex:1"><div class="skeleton-line short" style="margin:0"></div></div>
+                  </div>
+                </div></div>
+                <div class="review-slide"><div class="review-skeleton">
+                  <div class="skeleton-line short" style="height:12px;margin-bottom:1rem"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+                  <div style="display:flex;align-items:center;margin-top:1.25rem">
+                    <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                    <div style="flex:1"><div class="skeleton-line short" style="margin:0"></div></div>
+                  </div>
+                </div></div>
+                <div class="review-slide"><div class="review-skeleton">
+                  <div class="skeleton-line short" style="height:12px;margin-bottom:1rem"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+                  <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+                  <div style="display:flex;align-items:center;margin-top:1.25rem">
+                    <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                    <div style="flex:1"><div class="skeleton-line short" style="margin:0"></div></div>
+                  </div>
+                </div></div>
+              </div>
+            </div>
+
+            <button class="carousel-btn next" id="reviewNext" aria-label="Next review">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <!-- Dots below carousel -->
+          <div class="carousel-dots" id="carousel-dots" style="margin-top:1rem"></div>
+        </div>
+
       </div>
     </section>
+
 
     <!-- TRUST BAR -->
     <section class="trust-bar">
