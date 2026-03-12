@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -939,21 +939,176 @@
       margin: .85rem auto 0
     }
 
+    /* ---- REVIEWS CAROUSEL ---- */
+    .reviews-carousel-wrap {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
     .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .reviews-track {
+      display: flex;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+
+    .review-slide {
+      min-width: 33.333%;
+      padding: 0 .6rem;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .review-slide { min-width: 100%; padding: 0; }
     }
 
     .review-card {
       background: #fff;
       border-radius: 16px;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, .1);
+      border: 1px solid rgba(212, 175, 55, .18);
+      position: relative;
+      animation: fadeInUp .4s ease both;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Prev / Next arrow buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: 1px solid rgba(212,175,55,.35);
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 3px 12px rgba(0,0,0,.12);
+      transition: background .2s, box-shadow .2s, transform .2s;
+      z-index: 2;
+      color: #1e293b;
+    }
+
+    .carousel-btn:hover {
+      background: linear-gradient(135deg,#d4af37,#dcb746);
+      color: #1a1a1a;
+      box-shadow: 0 6px 18px rgba(212,175,55,.35);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .carousel-btn.prev { left: -54px; }
+    .carousel-btn.next { right: -54px; }
+
+    @media(max-width:900px) {
+      .carousel-btn.prev { left: -20px; }
+      .carousel-btn.next { right: -20px; }
+    }
+
+    @media(max-width:600px) {
+      .carousel-btn { display: none; }
+    }
+
+    /* Dot indicators */
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.3);
+      border: none;
+      cursor: pointer;
+      transition: background .25s, transform .25s;
+      padding: 0;
+    }
+
+    .carousel-dot.active {
+      background: var(--primary-gold);
+      transform: scale(1.25);
+    }
+
+    /* Profile photo inside card */
+    .review-avatar-img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(212,175,55,.35);
+      flex-shrink: 0;
+    }
+
+    .review-avatar-fallback {
+      background: #1e293b;
+      color: #d4af37;
+      font-weight: 700;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 2px solid rgba(212,175,55,.35);
+      flex-shrink: 0;
+    }
+
+    /* ---- SKELETON LOADER ---- */
+    .review-skeleton {
+      background: #fff;
+      border-radius: 16px;
       padding: 1.75rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
-      border: 1px solid rgba(212, 175, 55, .15);
-      position: relative
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      border: 1px solid rgba(212,175,55,.12);
+      overflow: hidden;
+    }
+
+    .skeleton-line {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 6px;
+      height: 14px;
+      margin-bottom: .75rem;
+    }
+
+    .skeleton-line.short { width: 45%; }
+    .skeleton-line.long  { width: 92%; }
+    .skeleton-line.mid   { width: 70%; }
+    .skeleton-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      margin-right: .75rem;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     .review-quote-icon {
@@ -976,7 +1131,14 @@
       color: var(--text-secondary);
       font-size: .9rem;
       line-height: 1.6;
-      margin-bottom: 1.25rem
+      margin-bottom: 1.25rem;
+      flex: 1;               /* pushes footer to bottom */
+      display: -webkit-box;
+      -webkit-line-clamp: 5; /* max 5 lines */
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .review-card-footer {
@@ -1527,58 +1689,66 @@
     <!-- REVIEWS -->
     <section class="reviews-section" id="reviews">
       <div class="section-header">
-        <h2 style="color:#1e293b;font-size:2.25rem;margin-bottom:.5rem">What Our <span
-            style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Clients
-            Say</span></h2>
+        <h2 style="color:#1e293b;font-size:2.25rem;margin-bottom:.5rem">Real Stories from <span
+            style="background:linear-gradient(45deg,var(--primary-gold),#b5952f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Our
+            Clients</span></h2>
         <p style="color:#333;font-size:.9rem;margin-top:.25rem">&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp; Verified
           5-Star Google Reviews</p>
         <div class="accent-line"></div>
       </div>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <div class="review-quote-icon" aria-hidden="true">"</div>
-          <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Excellent service to JFK. The owner/driver was on time, professional, and very helpful
-            with our luggage. The vehicle was clean, comfortable, and perfect for traveling with family. Smooth,
-            stress-free ride from start to finish. Highly recommend."</p>
-          <div class="review-card-footer">
-            <div class="avatar review-avatar"
-              style="background:#1e293b;color:#d4af37;font-weight:700;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid rgba(212,175,55,.3);flex-shrink:0">
-              <span aria-hidden="true">JM</span><span class="sr-only">Joseph Mathew Avatar</span>
-            </div>
-            <div class="review-author">Joseph Mathew</div>
+      <!-- Reviews carousel: track injected by reviews.js — skeletons shown while loading -->
+      <div class="reviews-carousel-wrap">
+        <!-- Prev button -->
+        <button class="carousel-btn prev" id="reviewPrev" aria-label="Previous review">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <!-- Carousel viewport -->
+        <div class="reviews-grid" id="live-reviews-container">
+          <!-- Skeleton placeholder track (replaced by renderReviews) -->
+          <div class="reviews-track" id="reviews-track">
+            <div class="review-slide"><div class="review-skeleton">
+              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+              <div style="display:flex;align-items:center;margin-top:1.25rem">
+                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
+              </div>
+            </div></div>
+            <div class="review-slide"><div class="review-skeleton">
+              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+              <div style="display:flex;align-items:center;margin-top:1.25rem">
+                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
+              </div>
+            </div></div>
+            <div class="review-slide"><div class="review-skeleton">
+              <div class="skeleton-line short" style="height:12px;margin-bottom:1rem;"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line mid"></div>
+              <div class="skeleton-line long"></div><div class="skeleton-line short" style="width:60%"></div>
+              <div style="display:flex;align-items:center;margin-top:1.25rem">
+                <div class="skeleton-avatar" style="margin-right:.75rem"></div>
+                <div style="flex:1"><div class="skeleton-line short" style="margin:0;"></div></div>
+              </div>
+            </div></div>
           </div>
         </div>
-        <div class="review-card">
-          <div class="review-quote-icon" aria-hidden="true">"</div>
-          <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Worked with Benny and his team for a 4-day client-entertainment event and the entire
-            experience working with them was excellent. Incredibly professional, timely, clean sprinter vans, and
-            flexible with any changes that came up last minute. Can't recommend Peters Transit enough!"</p>
-          <div class="review-card-footer">
-            <div class="avatar review-avatar"
-              style="background:#1e293b;color:#d4af37;font-weight:700;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid rgba(212,175,55,.3);flex-shrink:0">
-              <span aria-hidden="true">MK</span><span class="sr-only">Matt Kolarczyk Avatar</span>
-            </div>
-            <div class="review-author">Matt Kolarczyk</div>
-          </div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote-icon" aria-hidden="true">"</div>
-          <div class="review-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          <p class="review-text">"Terrific service, will certainly recommend and use again."</p>
-          <div class="review-card-footer">
-            <div class="avatar review-avatar"
-              style="background:#1e293b;color:#d4af37;font-weight:700;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;border:2px solid rgba(212,175,55,.3);flex-shrink:0">
-              <span aria-hidden="true">RF</span><span class="sr-only">Rob Fratamico Avatar</span>
-            </div>
-            <div class="review-author">Rob Fratamico</div>
-          </div>
-        </div>
+
+        <!-- Next button -->
+        <button class="carousel-btn next" id="reviewNext" aria-label="Next review">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
       </div>
+
+      <!-- Dot indicators (injected by reviews.js) -->
+      <div class="carousel-dots" id="carousel-dots"></div>
+
       <div style="text-align:center;padding-top:2rem">
-        <a href="https://www.google.com/maps/place/PETERS+TRANSIT+LLC/@40.1186104,-75.0557295,17z/data=!4m8!3m7!1s0x89c6b33cd195a323:0xbb373d3586157dca!8m2!3d40.1186063!4d-75.0531546!9m1!1b1!16s%2Fg%2F11rb2xx160?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank" rel="noopener" class="google-reviews-summary">
+        <a href="https://maps.app.goo.gl/5owK6d7cU1WdWJQ5A"
+          target="_blank" rel="noopener" class="google-reviews-summary" id="google-reviews-summary-link">
           <div class="google-summary-left">
             <div class="google-logo-icon">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1597,9 +1767,9 @@
               </svg>
             </div>
             <div class="google-summary-stats">
-              <div class="google-summary-rating">5.0 <span
-                  class="google-summary-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
-              <div class="google-summary-text">Based on <strong>145</strong> Excellent Reviews</div>
+              <div class="google-summary-rating"><span id="live-rating">5.0</span> <span
+                  class="google-summary-stars" id="live-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+              <div class="google-summary-text">Based on <strong id="live-review-count">145</strong> Excellent Reviews</div>
             </div>
           </div>
           <div class="google-summary-arrow">View All <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
@@ -1849,42 +2019,59 @@
       Get a Quote
     </a>
 
-    <!-- Google Maps: loaded ONLY when a location field is focused (saves ~200KB on page load) -->
+    <!-- Reviews logic (fetching, rendering, fallback) -->
+    <script defer src="reviews.js"></script>
+
+    <!-- Google Maps: Lazy-loaded via IntersectionObserver for performance -->
     <script>
       (function () {
+        'use strict';
         var loaded = false;
+        var API_KEY = 'AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08';
 
+        /* Callback fired when Maps JS API finished loading */
         window.initGoogleMaps = function () {
-          ["pickupAddress", "dropoffAddress"].forEach(function (id) {
-            var inputEl = document.getElementById(id);
-            if (!inputEl) return;
-
-            // Use the classic Autocomplete which attaches to the existing input instead of replacing it
-            var autocomplete = new google.maps.places.Autocomplete(inputEl, {
-              types: ["geocode", "establishment"]
-            });
-
-            // Prevent Enter from submitting the form when picking a place
-            inputEl.addEventListener("keydown", function (e) {
-              if (e.key === "Enter") e.preventDefault();
+          // Address autocomplete
+          ['pickupAddress', 'dropoffAddress'].forEach(function (id) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            new google.maps.places.Autocomplete(el, { types: ['geocode', 'establishment'] });
+            el.addEventListener('keydown', function (e) {
+              if (e.key === 'Enter') e.preventDefault();
             });
           });
+          // Delegate review fetching to reviews.js
+          if (typeof window.loadRushHourReviews === 'function') {
+            window.loadRushHourReviews();
+          }
         };
 
         function loadMaps() {
           if (loaded) return;
           loaded = true;
-          var s = document.createElement("script");
-          s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCPatmPbZWI_3UprVkYWvtNqBz07lrAZ08&libraries=places&callback=initGoogleMaps&loading=async";
+          var s = document.createElement('script');
+          s.src = 'https://maps.googleapis.com/maps/api/js?key=' + API_KEY + '&libraries=places&callback=initGoogleMaps&loading=async';
           s.async = true;
           document.head.appendChild(s);
         }
 
-        ["pickupAddress", "dropoffAddress"].forEach(function (id) {
+        /* IntersectionObserver — start loading when reviews section is 200px away */
+        var reviewsSection = document.getElementById('reviews');
+        if ('IntersectionObserver' in window && reviewsSection) {
+          new IntersectionObserver(function (entries, obs) {
+            if (entries[0].isIntersecting) { loadMaps(); obs.disconnect(); }
+          }, { rootMargin: '200px' }).observe(reviewsSection);
+        } else {
+          window.addEventListener('load', loadMaps);
+        }
+
+        /* Also trigger when address fields are focused */
+        ['pickupAddress', 'dropoffAddress'].forEach(function (id) {
           var el = document.getElementById(id);
-          if (!el) return;
-          el.addEventListener("focus", loadMaps, { once: true });
-          el.addEventListener("click", loadMaps, { once: true });
+          if (el) {
+            el.addEventListener('focus', loadMaps, { once: true });
+            el.addEventListener('click', loadMaps, { once: true });
+          }
         });
       })();
     </script>
